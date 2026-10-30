@@ -2,11 +2,12 @@
 
 一个面向合成企业制度的 CLI 助手：模型自主检索、读取原文，根据证据继续补查、回答、追问或停止。包含真实模型接口、离线固定流程、执行上限、引用来源校验和实际运行记录。
 
-实际投入约 2.5 小时。核心实现、验证材料和本人三类场景的独立运行已完成；当前为合成资料下的 CLI 原型，远端提交与评审权限尚待核对。个人工作与 AI 辅助范围见下列记录。
+实际投入约 2.5 小时。核心实现、验证材料和本人三类场景的独立运行已完成；当前为合成资料下的 CLI 原型。[GitHub 仓库](https://github.com/JieWu42/enterprise-knowledge-agent)公开可读。个人工作与 AI 辅助范围见下列记录。
 
 ## 评审入口
 
 - [需求与成功标准](docs/01-requirements.md)
+- [提交与快速复现](docs/07-submission.md)
 - [模型决策与实现取舍](docs/02-solution.md)
 - [实际验证与限制](docs/03-evaluation.md)
 - [AI 辅助范围](docs/04-ai-usage.md)和[个人贡献记录](docs/06-contribution-log.md)
