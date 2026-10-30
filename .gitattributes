@@ -1,5 +1,8 @@
 # Preserve byte-exact JSON corpora/traces and saved experiment snapshots.
 * -text
+* whitespace=trailing-space,space-before-tab,cr-at-eol
+# Unified diff context lines intentionally contain a leading space.
+*.patch -whitespace
 # Keep source hashes stable when cloning on Windows or Linux.
 *.py text eol=lf
 *.md text eol=lf
