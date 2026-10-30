@@ -1,0 +1,144 @@
+{
+  "audited_at": "2026-10-30T20:20:32.241257+00:00",
+  "source_sha256": "d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a",
+  "scope": "Recheck retained real-model traces; no new model calls in this audit",
+  "real_model_cases": [
+    {
+      "case_id": "normal",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "conflict",
+      "mode": "real",
+      "status": "needs_clarification",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "out-of-scope",
+      "mode": "real",
+      "status": "incomplete",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "paraphrase",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "context",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "transient-failure",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "persistent-failure",
+      "mode": "real",
+      "status": "incomplete",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "user-annual-leave",
+      "mode": "real",
+      "status": "partially_answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "cross-scope",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "missing-scope",
+      "mode": "real",
+      "status": "needs_clarification",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "step-limit",
+      "mode": "real",
+      "status": "incomplete",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "changed-document",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "natural-conflict",
+      "mode": "real",
+      "status": "needs_clarification",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "explicit-replacement",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    },
+    {
+      "case_id": "policy-overview",
+      "mode": "real",
+      "status": "answered",
+      "recorded_checks_passed": true,
+      "source_matches": true,
+      "citation_validation_errors": [],
+      "within_limits": true
+    }
+  ],
+  "stored_engineering_report": "examples/test-results/20261030T195918Z.json",
+  "engineering_tests_rerun_during_review": 21
+}

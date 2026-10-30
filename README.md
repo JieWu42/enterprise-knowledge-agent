@@ -8,6 +8,7 @@
 
 - [需求与成功标准](docs/01-requirements.md)
 - [提交与快速复现](docs/07-submission.md)
+- [题目要求与验收证据对照](docs/08-acceptance-checklist.md)
 - [模型决策与实现取舍](docs/02-solution.md)
 - [实际验证与限制](docs/03-evaluation.md)
 - [AI 辅助范围](docs/04-ai-usage.md)和[个人贡献记录](docs/06-contribution-log.md)
