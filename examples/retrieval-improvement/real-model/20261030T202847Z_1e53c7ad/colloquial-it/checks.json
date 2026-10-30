@@ -1,0 +1,17 @@
+{
+  "case_id": "colloquial-it",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_IT-SUPPORT": true,
+    "contains_工单": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 3,
+  "seconds": 4.796,
+  "trace_path": "colloquial-it/trace.json"
+}

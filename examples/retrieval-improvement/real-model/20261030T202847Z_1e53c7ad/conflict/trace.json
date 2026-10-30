@@ -1,0 +1,311 @@
+{
+  "trace_id": "20261030T202852Z_ecb03d1d",
+  "started_at": "2026-10-30T20:28:52.490735+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "工作餐报销需要在几天内提交？",
+    "history": []
+  },
+  "retrieval_config": {
+    "method": "character_bigrams",
+    "query_expansion": true,
+    "expansion_weight": 0.5,
+    "aliases_sha256": "27e231e3bed5050edad5ed0a6a99adfc6d57b38cbd3198d338ad4b6012e3ea66"
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_bVhPwgO2ifTMsqDnnEax5146",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"工作餐报销 提交时限\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1059,
+        "completion_tokens": 60,
+        "total_tokens": 1119,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 163
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.172,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "工作餐报销 提交时限",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "工作餐报销 提交时限",
+            "results": [
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销说明 A",
+                "version_date": "2026-05-12",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.625,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐报销说明 B",
+                "version_date": "2026-09-03",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.625,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.25,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.25,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.25,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              },
+              {
+                "document_id": "IT-SUPPORT",
+                "title": "办公设备故障处理",
+                "version_date": "2026-07-01",
+                "scope": "公司配发的办公设备",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境内差旅应先提交出差审批，获批后通过企业差旅平台预订。火车按二等座标准预订。"
+              }
+            ],
+            "applied_aliases": [],
+            "total_matches": 7,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_aQN4o26BNNCLw9NyxXIm0892",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"MEAL-A\", \"paragraph_ids\": [\"p1\"]}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_pEJHJAUZr26bJRfRAe9c3663",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"MEAL-B\", \"paragraph_ids\": [\"p1\"]}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1910,
+        "completion_tokens": 113,
+        "total_tokens": 2023,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 246
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.328,
+      "tools": [
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "MEAL-A",
+            "paragraph_ids": [
+              "p1"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "MEAL-A",
+            "title": "工作餐报销说明 A",
+            "version_date": "2026-05-12",
+            "scope": "工作餐，未注明地区或人群",
+            "available_paragraph_ids": [
+              "p1"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "MEAL-B",
+            "paragraph_ids": [
+              "p1"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "MEAL-B",
+            "title": "工作餐报销说明 B",
+            "version_date": "2026-09-03",
+            "scope": "工作餐，未注明地区或人群",
+            "available_paragraph_ids": [
+              "p1"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"needs_clarification\",\"reason_code\":\"conflict\",\"answer\":\"现有两份工作餐报销说明对提交时限规定不一致：说明A要求用餐后7个自然日内提交，说明B要求用餐后14个自然日内提交。两份说明均未注明适用地区、人群、优先级或替代关系，因此仅凭原文无法判断应适用哪一份，也不能按版本日期自行选择。请确认您适用哪份制度，或联系制度归口部门确认。\",\"citations\":[{\"document_id\":\"MEAL-A\",\"version_date\":\"2026-05-12\",\"paragraph_id\":\"p1\",\"quote\":\"工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。\"},{\"document_id\":\"MEAL-B\",\"version_date\":\"2026-09-03\",\"paragraph_id\":\"p1\",\"quote\":\"工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。\"}],\"gaps\":[\"两份工作餐报销说明的时限规定冲突（7日与14日），且均未注明适用范围、优先级或替代关系，无法确定适用哪一份\"],\"clarification_question\":\"您所在地区或所属员工群体适用哪一份工作餐报销说明（A还是B）？或请提供制度归口部门的确认。\",\"decision_summary\":\"已读取两份工作餐报销说明原文，发现7日与14日的时限冲突且无适用范围或优先级依据，按规则需追问适用制度，不擅自选择较新版本。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 326,
+        "total_tokens": 2573,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 327
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.266,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "needs_clarification",
+    "reason_code": "conflict",
+    "answer": "现有两份工作餐报销说明对提交时限规定不一致：说明A要求用餐后7个自然日内提交，说明B要求用餐后14个自然日内提交。两份说明均未注明适用地区、人群、优先级或替代关系，因此仅凭原文无法判断应适用哪一份，也不能按版本日期自行选择。请确认您适用哪份制度，或联系制度归口部门确认。",
+    "citations": [
+      {
+        "document_id": "MEAL-A",
+        "version_date": "2026-05-12",
+        "paragraph_id": "p1",
+        "quote": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+      },
+      {
+        "document_id": "MEAL-B",
+        "version_date": "2026-09-03",
+        "paragraph_id": "p1",
+        "quote": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+      }
+    ],
+    "gaps": [
+      "两份工作餐报销说明的时限规定冲突（7日与14日），且均未注明适用范围、优先级或替代关系，无法确定适用哪一份"
+    ],
+    "clarification_question": "您所在地区或所属员工群体适用哪一份工作餐报销说明（A还是B）？或请提供制度归口部门的确认。",
+    "decision_summary": "已读取两份工作餐报销说明原文，发现7日与14日的时限冲突且无适用范围或优先级依据，按规则需追问适用制度，不擅自选择较新版本。",
+    "trace_id": "20261030T202852Z_ecb03d1d"
+  },
+  "model_calls": 3,
+  "tool_calls": 3,
+  "elapsed_seconds": 4.766,
+  "finished_at": "2026-10-30T20:28:57.268401+00:00"
+}

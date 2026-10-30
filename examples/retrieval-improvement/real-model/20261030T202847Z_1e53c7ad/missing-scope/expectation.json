@@ -1,0 +1,9 @@
+{
+  "id": "missing-scope",
+  "question": "我的差旅报销应在几天内提交？",
+  "expected_status": [
+    "needs_clarification"
+  ],
+  "require_gap": true,
+  "author": "AI 起草"
+}

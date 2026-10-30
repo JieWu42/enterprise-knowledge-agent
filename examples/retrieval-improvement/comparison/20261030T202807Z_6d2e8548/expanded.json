@@ -1,0 +1,353 @@
+{
+  "variant": "expanded",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "retrieval_config": {
+    "method": "character_bigrams",
+    "query_expansion": true,
+    "expansion_weight": 0.5,
+    "aliases_sha256": "27e231e3bed5050edad5ed0a6a99adfc6d57b38cbd3198d338ad4b6012e3ea66"
+  },
+  "metrics": {
+    "hit_at_1": 0.9166666666666666,
+    "macro_recall_at_3": 1.0,
+    "mrr_at_8": 0.9583333333333334
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "query": "国内出差结束了，费用单据最迟什么时候交？",
+      "relevant_documents": [
+        "EXPENSE-CN"
+      ],
+      "ranked_documents": [
+        "EXPENSE-INTL",
+        "EXPENSE-CN",
+        "TRAVEL-BOOK"
+      ],
+      "hit_at_1": false,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.5,
+      "applied_aliases": [
+        {
+          "term": "国内",
+          "expansions": [
+            "境内"
+          ]
+        },
+        {
+          "term": "出差",
+          "expansions": [
+            "差旅"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R02",
+      "query": "出国办事回来，交账最晚能拖几天？",
+      "relevant_documents": [
+        "EXPENSE-INTL"
+      ],
+      "ranked_documents": [
+        "EXPENSE-INTL",
+        "EXPENSE-CN",
+        "MEAL-A",
+        "MEAL-B"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "出国",
+          "expansions": [
+            "境外"
+          ]
+        },
+        {
+          "term": "交账",
+          "expansions": [
+            "报销"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R03",
+      "query": "同事因工作安排吃饭的饭钱怎样报账，期限多久？",
+      "relevant_documents": [
+        "MEAL-A",
+        "MEAL-B"
+      ],
+      "ranked_documents": [
+        "MEAL-A",
+        "MEAL-B",
+        "IT-SUPPORT",
+        "LEAVE-REQUEST",
+        "EXPENSE-CN",
+        "EXPENSE-INTL"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "报账",
+          "expansions": [
+            "报销"
+          ]
+        },
+        {
+          "term": "饭钱",
+          "expansions": [
+            "工作餐"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R04",
+      "query": "工作餐的餐费什么时候交账？",
+      "relevant_documents": [
+        "MEAL-A",
+        "MEAL-B"
+      ],
+      "ranked_documents": [
+        "MEAL-A",
+        "MEAL-B",
+        "IT-SUPPORT",
+        "LEAVE-REQUEST",
+        "EXPENSE-CN",
+        "EXPENSE-INTL"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "交账",
+          "expansions": [
+            "报销"
+          ]
+        },
+        {
+          "term": "餐费",
+          "expansions": [
+            "工作餐"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R05",
+      "query": "休假申请要找谁点头？",
+      "relevant_documents": [
+        "LEAVE-REQUEST"
+      ],
+      "ranked_documents": [
+        "LEAVE-REQUEST",
+        "EXPENSE-CN",
+        "EXPENSE-INTL"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "休假",
+          "expansions": [
+            "请假"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R06",
+      "query": "请年休假走哪个入口？",
+      "relevant_documents": [
+        "LEAVE-REQUEST"
+      ],
+      "ranked_documents": [
+        "LEAVE-REQUEST"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "休假",
+          "expansions": [
+            "请假"
+          ]
+        },
+        {
+          "term": "年休假",
+          "expansions": [
+            "年假",
+            "请假"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R07",
+      "query": "单位配发的笔记本开不了机了，找谁处理？",
+      "relevant_documents": [
+        "IT-SUPPORT"
+      ],
+      "ranked_documents": [
+        "IT-SUPPORT"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "笔记本",
+          "expansions": [
+            "办公电脑"
+          ]
+        },
+        {
+          "term": "开不了机",
+          "expansions": [
+            "故障"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R08",
+      "query": "办公本子坏了要怎么报修？",
+      "relevant_documents": [
+        "IT-SUPPORT"
+      ],
+      "ranked_documents": [
+        "IT-SUPPORT"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "办公本子",
+          "expansions": [
+            "办公电脑"
+          ]
+        },
+        {
+          "term": "坏了",
+          "expansions": [
+            "故障"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R09",
+      "query": "小组讨论要订会议房间，在哪儿约？",
+      "relevant_documents": [
+        "ROOM-BOOK"
+      ],
+      "ranked_documents": [
+        "ROOM-BOOK"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "会议房间",
+          "expansions": [
+            "会议室"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R10",
+      "query": "日程上的会议取消了，原来订的场地要处理吗？",
+      "relevant_documents": [
+        "ROOM-BOOK"
+      ],
+      "ranked_documents": [
+        "ROOM-BOOK",
+        "IT-SUPPORT"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R11",
+      "query": "国内出差搭高铁，车票该怎么买？",
+      "relevant_documents": [
+        "TRAVEL-BOOK"
+      ],
+      "ranked_documents": [
+        "TRAVEL-BOOK",
+        "EXPENSE-INTL",
+        "EXPENSE-CN"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "国内",
+          "expansions": [
+            "境内"
+          ]
+        },
+        {
+          "term": "出差",
+          "expansions": [
+            "差旅"
+          ]
+        },
+        {
+          "term": "高铁",
+          "expansions": [
+            "火车"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R12",
+      "query": "去境外出差，外币付款凭据需要带上吗？",
+      "relevant_documents": [
+        "EXPENSE-INTL"
+      ],
+      "ranked_documents": [
+        "EXPENSE-INTL",
+        "EXPENSE-CN",
+        "TRAVEL-BOOK"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": [
+        {
+          "term": "出差",
+          "expansions": [
+            "差旅"
+          ]
+        },
+        {
+          "term": "外币",
+          "expansions": [
+            "非人民币"
+          ]
+        },
+        {
+          "term": "付款凭据",
+          "expansions": [
+            "支付凭证"
+          ]
+        }
+      ]
+    }
+  ]
+}

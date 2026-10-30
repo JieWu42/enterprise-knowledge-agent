@@ -1,0 +1,195 @@
+{
+  "variant": "baseline",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "retrieval_config": {
+    "expand_query": false
+  },
+  "metrics": {
+    "hit_at_1": 0.5833333333333334,
+    "macro_recall_at_3": 0.7916666666666666,
+    "mrr_at_8": 0.6805555555555555
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "query": "国内出差结束了，费用单据最迟什么时候交？",
+      "relevant_documents": [
+        "EXPENSE-CN"
+      ],
+      "ranked_documents": [
+        "EXPENSE-INTL",
+        "EXPENSE-CN",
+        "TRAVEL-BOOK"
+      ],
+      "hit_at_1": false,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.5,
+      "applied_aliases": []
+    },
+    {
+      "id": "R02",
+      "query": "出国办事回来，交账最晚能拖几天？",
+      "relevant_documents": [
+        "EXPENSE-INTL"
+      ],
+      "ranked_documents": [],
+      "hit_at_1": false,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R03",
+      "query": "同事因工作安排吃饭的饭钱怎样报账，期限多久？",
+      "relevant_documents": [
+        "MEAL-A",
+        "MEAL-B"
+      ],
+      "ranked_documents": [
+        "IT-SUPPORT",
+        "LEAVE-REQUEST",
+        "MEAL-A",
+        "MEAL-B"
+      ],
+      "hit_at_1": false,
+      "recall_at_3": 0.5,
+      "reciprocal_rank": 0.3333333333333333,
+      "applied_aliases": []
+    },
+    {
+      "id": "R04",
+      "query": "工作餐的餐费什么时候交账？",
+      "relevant_documents": [
+        "MEAL-A",
+        "MEAL-B"
+      ],
+      "ranked_documents": [
+        "MEAL-A",
+        "MEAL-B",
+        "IT-SUPPORT",
+        "LEAVE-REQUEST"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R05",
+      "query": "休假申请要找谁点头？",
+      "relevant_documents": [
+        "LEAVE-REQUEST"
+      ],
+      "ranked_documents": [
+        "LEAVE-REQUEST",
+        "EXPENSE-CN",
+        "EXPENSE-INTL"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R06",
+      "query": "请年休假走哪个入口？",
+      "relevant_documents": [
+        "LEAVE-REQUEST"
+      ],
+      "ranked_documents": [],
+      "hit_at_1": false,
+      "recall_at_3": 0.0,
+      "reciprocal_rank": 0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R07",
+      "query": "单位配发的笔记本开不了机了，找谁处理？",
+      "relevant_documents": [
+        "IT-SUPPORT"
+      ],
+      "ranked_documents": [
+        "IT-SUPPORT"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R08",
+      "query": "办公本子坏了要怎么报修？",
+      "relevant_documents": [
+        "IT-SUPPORT"
+      ],
+      "ranked_documents": [
+        "IT-SUPPORT"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R09",
+      "query": "小组讨论要订会议房间，在哪儿约？",
+      "relevant_documents": [
+        "ROOM-BOOK"
+      ],
+      "ranked_documents": [
+        "ROOM-BOOK"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R10",
+      "query": "日程上的会议取消了，原来订的场地要处理吗？",
+      "relevant_documents": [
+        "ROOM-BOOK"
+      ],
+      "ranked_documents": [
+        "ROOM-BOOK",
+        "IT-SUPPORT"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    },
+    {
+      "id": "R11",
+      "query": "国内出差搭高铁，车票该怎么买？",
+      "relevant_documents": [
+        "TRAVEL-BOOK"
+      ],
+      "ranked_documents": [
+        "EXPENSE-CN",
+        "EXPENSE-INTL",
+        "TRAVEL-BOOK"
+      ],
+      "hit_at_1": false,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "applied_aliases": []
+    },
+    {
+      "id": "R12",
+      "query": "去境外出差，外币付款凭据需要带上吗？",
+      "relevant_documents": [
+        "EXPENSE-INTL"
+      ],
+      "ranked_documents": [
+        "EXPENSE-INTL",
+        "EXPENSE-CN",
+        "TRAVEL-BOOK"
+      ],
+      "hit_at_1": true,
+      "recall_at_3": 1.0,
+      "reciprocal_rank": 1.0,
+      "applied_aliases": []
+    }
+  ]
+}

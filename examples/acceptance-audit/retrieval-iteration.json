@@ -1,0 +1,162 @@
+{
+  "audited_at": "2026-10-30T20:30:32.334890+00:00",
+  "source_sha256": "f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe",
+  "aliases_sha256": "27e231e3bed5050edad5ed0a6a99adfc6d57b38cbd3198d338ad4b6012e3ea66",
+  "engineering_report": "examples/test-results/20261030T202808Z.json",
+  "scope": "Lightweight retrieval iteration; actual 17-case model run and rechecked source/citations",
+  "real_model_cases": [
+    {
+      "case_id": "normal",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "conflict",
+      "status": "needs_clarification",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "out-of-scope",
+      "status": "incomplete",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "paraphrase",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "context",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "transient-failure",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "persistent-failure",
+      "status": "incomplete",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "user-annual-leave",
+      "status": "partially_answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "cross-scope",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "missing-scope",
+      "status": "needs_clarification",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "step-limit",
+      "status": "incomplete",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "changed-document",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "natural-conflict",
+      "status": "needs_clarification",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "explicit-replacement",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "policy-overview",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "colloquial-overseas",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    },
+    {
+      "case_id": "colloquial-it",
+      "status": "answered",
+      "mode": "real",
+      "checks_passed": true,
+      "source_matches": true,
+      "aliases_match": true,
+      "citation_errors": []
+    }
+  ]
+}

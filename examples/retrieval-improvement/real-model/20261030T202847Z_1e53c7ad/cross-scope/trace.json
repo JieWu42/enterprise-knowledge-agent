@@ -1,0 +1,417 @@
+{
+  "trace_id": "20261030T202930Z_cbe4c778",
+  "started_at": "2026-10-30T20:29:30.756027+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "在国内工作的员工去境外出差，报销期限按哪份制度？",
+    "history": []
+  },
+  "retrieval_config": {
+    "method": "character_bigrams",
+    "query_expansion": true,
+    "expansion_weight": 0.5,
+    "aliases_sha256": "27e231e3bed5050edad5ed0a6a99adfc6d57b38cbd3198d338ad4b6012e3ea66"
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索与境外出差报销期限相关的制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_iKnNjEyVKUekuPzAfPer0957",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"境外出差 报销期限\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_7Ylmst8LkGNhX4iktvMP7043",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"出差费用报销管理办法\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1066,
+        "completion_tokens": 120,
+        "total_tokens": 1186,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 170
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.328,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "境外出差 报销期限",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "境外出差 报销期限",
+            "results": [
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.4667,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境外差旅报销需要发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。"
+              },
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.3333,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "报销需提供电子发票、出差审批单和行程记录。材料缺失时财务退回补充。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.2,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境内差旅应先提交出差审批，获批后通过企业差旅平台预订。火车按二等座标准预订。"
+              },
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销说明 A",
+                "version_date": "2026-05-12",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.1333,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐报销说明 B",
+                "version_date": "2026-09-03",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.1333,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              }
+            ],
+            "applied_aliases": [
+              {
+                "term": "出差",
+                "expansions": [
+                  "差旅"
+                ]
+              }
+            ],
+            "total_matches": 5,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "出差费用报销管理办法",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "出差费用报销管理办法",
+            "results": [
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.4737,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境外差旅报销需要发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。"
+              },
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.3684,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "报销需提供电子发票、出差审批单和行程记录。材料缺失时财务退回补充。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.1579,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境内差旅应先提交出差审批，获批后通过企业差旅平台预订。火车按二等座标准预订。"
+              },
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销说明 A",
+                "version_date": "2026-05-12",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.1053,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐报销说明 B",
+                "version_date": "2026-09-03",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.1053,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "ROOM-BOOK",
+                "title": "会议室使用办法",
+                "version_date": "2026-04-10",
+                "scope": "总部会议室",
+                "score": 0.1053,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "总部会议室通过企业日历预订，预订时填写会议主题、起止时间和参会人数。会议取消后应释放预订。"
+              }
+            ],
+            "applied_aliases": [
+              {
+                "term": "出差",
+                "expansions": [
+                  "差旅"
+                ]
+              }
+            ],
+            "total_matches": 6,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会读取两份差旅报销办法的原文，确认各自的适用范围和报销期限。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_7BewPO2xHfKCmpc9XaSn1037",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"EXPENSE-INTL\", \"paragraph_ids\": [\"p1\", \"p2\"]}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_RjoekuepLiDpVBM6c2TN9883",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"EXPENSE-CN\", \"paragraph_ids\": [\"p1\", \"p2\"]}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2482,
+        "completion_tokens": 140,
+        "total_tokens": 2622,
+        "prompt_tokens_details": {
+          "cached_tokens": 1152
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 1330
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.422,
+      "tools": [
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "EXPENSE-INTL",
+            "paragraph_ids": [
+              "p1",
+              "p2"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "EXPENSE-INTL",
+            "title": "境外差旅报销办法",
+            "version_date": "2026-08-01",
+            "scope": "境外差旅，不论员工常驻地",
+            "available_paragraph_ids": [
+              "p1",
+              "p2"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "id": "p2",
+                "text": "境外差旅报销需要发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "EXPENSE-CN",
+            "paragraph_ids": [
+              "p1",
+              "p2"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "EXPENSE-CN",
+            "title": "境内差旅报销办法",
+            "version_date": "2026-08-01",
+            "scope": "中国境内员工的境内差旅",
+            "available_paragraph_ids": [
+              "p1",
+              "p2"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "id": "p2",
+                "text": "报销需提供电子发票、出差审批单和行程记录。材料缺失时财务退回补充。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"answered\",\"reason_code\":\"sufficient_evidence\",\"answer\":\"应适用《境外差旅报销办法》。该办法明确适用范围为“境外差旅，不论员工常驻地”，因此在国内工作、但出差目的地为境外的员工也适用；报销期限为行程结束后45个自然日内提交差旅报销申请。\\n\\n《境内差旅报销办法》的适用范围是“中国境内员工的境内差旅”，只覆盖境内出差，不适用于本次境外出差；其20个自然日期限不适用。\\n\\n另需注意：境外报销还需提供发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。\",\"citations\":[{\"document_id\":\"EXPENSE-INTL\",\"version_date\":\"2026-08-01\",\"paragraph_id\":\"p1\",\"quote\":\"适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。\"},{\"document_id\":\"EXPENSE-INTL\",\"version_date\":\"2026-08-01\",\"paragraph_id\":\"p2\",\"quote\":\"境外差旅报销需要发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。\"},{\"document_id\":\"EXPENSE-CN\",\"version_date\":\"2026-08-01\",\"paragraph_id\":\"p1\",\"quote\":\"适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。\"}],\"gaps\":[],\"clarification_question\":\"\",\"decision_summary\":\"两份办法的适用范围原文明确：境外差旅办法覆盖“不论员工常驻地”的境外差旅，境内办法仅覆盖境内差旅，因此境外出差适用境外办法，期限为45个自然日，无需追问。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 2921,
+        "completion_tokens": 370,
+        "total_tokens": 3291,
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        },
+        "prompt_cache_hit_tokens": 2560,
+        "prompt_cache_miss_tokens": 361
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.563,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "reason_code": "sufficient_evidence",
+    "answer": "应适用《境外差旅报销办法》。该办法明确适用范围为“境外差旅，不论员工常驻地”，因此在国内工作、但出差目的地为境外的员工也适用；报销期限为行程结束后45个自然日内提交差旅报销申请。\n\n《境内差旅报销办法》的适用范围是“中国境内员工的境内差旅”，只覆盖境内出差，不适用于本次境外出差；其20个自然日期限不适用。\n\n另需注意：境外报销还需提供发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。",
+    "citations": [
+      {
+        "document_id": "EXPENSE-INTL",
+        "version_date": "2026-08-01",
+        "paragraph_id": "p1",
+        "quote": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+      },
+      {
+        "document_id": "EXPENSE-INTL",
+        "version_date": "2026-08-01",
+        "paragraph_id": "p2",
+        "quote": "境外差旅报销需要发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。"
+      },
+      {
+        "document_id": "EXPENSE-CN",
+        "version_date": "2026-08-01",
+        "paragraph_id": "p1",
+        "quote": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+      }
+    ],
+    "gaps": [],
+    "clarification_question": "",
+    "decision_summary": "两份办法的适用范围原文明确：境外差旅办法覆盖“不论员工常驻地”的境外差旅，境内办法仅覆盖境内差旅，因此境外出差适用境外办法，期限为45个自然日，无需追问。",
+    "trace_id": "20261030T202930Z_cbe4c778"
+  },
+  "model_calls": 3,
+  "tool_calls": 4,
+  "elapsed_seconds": 5.313,
+  "finished_at": "2026-10-30T20:29:36.078216+00:00"
+}

@@ -17,6 +17,7 @@ def main(argv=None):
     inputs.add_argument("--question")
     inputs.add_argument("--input", type=Path, help="JSON with question and optional history")
     parser.add_argument("--data", type=Path, default=ROOT / "data" / "documents.json")
+    parser.add_argument("--no-query-expansion", action="store_true", help="Disable domain aliases for retrieval ablation")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "runs")
     parser.add_argument("--max-model-calls", type=int, default=8)
     parser.add_argument("--max-tool-calls", type=int, default=10)
@@ -28,7 +29,7 @@ def main(argv=None):
         if args.fail_count < -1 or (args.fail_count and not args.fail_tool) or args.model_timeout <= 0:
             raise ValueError("Invalid failure injection or timeout configuration")
         payload = json.loads(args.input.read_text(encoding="utf-8-sig")) if args.input else {"question": args.question}
-        store = DocumentStore(args.data)
+        store = DocumentStore(args.data, expand_query=not args.no_query_expansion)
         executor = ToolExecutor(store, args.fail_tool, args.fail_count)
         model = OfflineMock() if args.mode == "mock" else ChatModel(args.model_timeout)
         agent = Agent(model, executor, args.max_model_calls, args.max_tool_calls)

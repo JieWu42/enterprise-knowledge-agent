@@ -52,6 +52,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["mock", "real"], default="mock")
     parser.add_argument("--cases", help="Comma-separated case IDs; omitted means all")
+    parser.add_argument("--no-query-expansion", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "examples" / "evaluation")
     args = parser.parse_args()
     cases = json.loads((ROOT / "data" / "eval_cases.json").read_text(encoding="utf-8"))
@@ -80,7 +81,7 @@ def main():
             paragraph["text"] = paragraph["text"].replace(mutation["old"], mutation["new"])
             corpus = directory / "documents.json"
             dump(corpus, documents)
-        store = DocumentStore(corpus)
+        store = DocumentStore(corpus, expand_query=not args.no_query_expansion)
         executor = ToolExecutor(store, case.get("fail_tool"), case.get("fail_count", 0))
         agent = Agent(model, executor, case.get("max_model_calls", 8), case.get("max_tool_calls", 10))
         result, trace = agent.run(case["question"], case.get("history", []))

@@ -1,0 +1,19 @@
+{
+  "case_id": "user-annual-leave",
+  "status": "partially_answered",
+  "reason_code": "partial_evidence",
+  "checks": {
+    "status": true,
+    "citation_LEAVE-REQUEST": true,
+    "contains_人事": true,
+    "contains_审批": true,
+    "gap": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 3,
+  "seconds": 5.312,
+  "trace_path": "user-annual-leave/trace.json"
+}

@@ -1,0 +1,14 @@
+[
+  {"id":"R01","query":"国内出差结束了，费用单据最迟什么时候交？","relevant_documents":["EXPENSE-CN"]},
+  {"id":"R02","query":"出国办事回来，交账最晚能拖几天？","relevant_documents":["EXPENSE-INTL"]},
+  {"id":"R03","query":"同事因工作安排吃饭的饭钱怎样报账，期限多久？","relevant_documents":["MEAL-A","MEAL-B"]},
+  {"id":"R04","query":"工作餐的餐费什么时候交账？","relevant_documents":["MEAL-A","MEAL-B"]},
+  {"id":"R05","query":"休假申请要找谁点头？","relevant_documents":["LEAVE-REQUEST"]},
+  {"id":"R06","query":"请年休假走哪个入口？","relevant_documents":["LEAVE-REQUEST"]},
+  {"id":"R07","query":"单位配发的笔记本开不了机了，找谁处理？","relevant_documents":["IT-SUPPORT"]},
+  {"id":"R08","query":"办公本子坏了要怎么报修？","relevant_documents":["IT-SUPPORT"]},
+  {"id":"R09","query":"小组讨论要订会议房间，在哪儿约？","relevant_documents":["ROOM-BOOK"]},
+  {"id":"R10","query":"日程上的会议取消了，原来订的场地要处理吗？","relevant_documents":["ROOM-BOOK"]},
+  {"id":"R11","query":"国内出差搭高铁，车票该怎么买？","relevant_documents":["TRAVEL-BOOK"]},
+  {"id":"R12","query":"去境外出差，外币付款凭据需要带上吗？","relevant_documents":["EXPENSE-INTL"]}
+]

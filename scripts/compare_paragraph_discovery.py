@@ -64,7 +64,7 @@ def main():
                      "before_source_sha256": before_trace["source_sha256"],
                      "after_source_sha256": after_trace["source_sha256"]})
     original = (directory / "before-tools.py.txt").read_text(encoding="utf-8")
-    current = (ROOT / "src" / "knowledge_agent" / "tools.py").read_text(encoding="utf-8")
+    current = (directory / "after-tools.py.txt").read_text(encoding="utf-8")
     patch = "".join(difflib.unified_diff(original.splitlines(keepends=True), current.splitlines(keepends=True),
                                        fromfile="before/tools.py", tofile="after/tools.py"))
     (directory / "tools.patch").write_text(patch, encoding="utf-8")

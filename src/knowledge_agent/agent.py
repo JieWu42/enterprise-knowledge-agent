@@ -50,6 +50,7 @@ class Agent:
                  "mode": self.model.mode, "requested_model": self.model.model,
                  "provider_host": self.model.provider_host, "source_sha256": source_digest(),
                  "corpus_sha256": self.executor.store.sha256, "input": {"question": question, "history": history},
+                 "retrieval_config": self.executor.store.retrieval_config,
                  "limits": {"model_calls": self.max_model_calls, "tool_calls": self.max_tool_calls},
                  "fault_injection": {"tool": self.executor.fail_tool, "remaining_at_start": self.executor.remaining_failures},
                  "steps": []}

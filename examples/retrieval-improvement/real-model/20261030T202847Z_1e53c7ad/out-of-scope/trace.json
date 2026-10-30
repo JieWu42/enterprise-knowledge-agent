@@ -1,0 +1,215 @@
+{
+  "trace_id": "20261030T202857Z_82bef624",
+  "started_at": "2026-10-30T20:28:57.274404+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "公司每年给员工多少股票期权？",
+    "history": []
+  },
+  "retrieval_config": {
+    "method": "character_bigrams",
+    "query_expansion": true,
+    "expansion_weight": 0.5,
+    "aliases_sha256": "27e231e3bed5050edad5ed0a6a99adfc6d57b38cbd3198d338ad4b6012e3ea66"
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索公司关于股票期权授予的制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_EteMK1mICx6hL1zrSMhF5667",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"股票期权 授予 数量\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_lY5TGhMB3bVrb23FDQAS2614",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"股权激励 年度授予\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1059,
+        "completion_tokens": 119,
+        "total_tokens": 1178,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 163
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 0.984,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "股票期权 授予 数量",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "股票期权 授予 数量",
+            "results": [],
+            "applied_aliases": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "股权激励 年度授予",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "股权激励 年度授予",
+            "results": [],
+            "applied_aliases": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会尝试其他关键词。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_ZFT0sScwYfhuHKNO9CBb7004",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"期权\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_3muDzGxSyynhE8o4mkEK7969",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"长期激励 薪酬\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1281,
+        "completion_tokens": 108,
+        "total_tokens": 1389,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 257
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.672,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "期权",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "期权",
+            "results": [],
+            "applied_aliases": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "长期激励 薪酬",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "长期激励 薪酬",
+            "results": [],
+            "applied_aliases": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"incomplete\",\"reason_code\":\"missing_scope\",\"answer\":\"制度库中未检索到任何关于股票期权或股权激励的规定，因此无法回答公司每年给员工多少股票期权。已用“股票期权 授予 数量”“股权激励 年度授予”“期权”“长期激励 薪酬”等关键词检索，均无匹配文档，未读取到任何原文，故不能给出数量、比例或授予规则。\",\"citations\":[],\"gaps\":[\"制度库中没有股票期权/股权激励相关制度原文，缺少授予数量、授予对象、频次等规定\",\"若期权授予由董事会决议、激励计划方案或劳动合同约定而非公司制度文件，需提供相应文件\"],\"clarification_question\":\"请问您指的是哪一类激励（如股票期权激励计划、限制性股票）？以及您希望了解的是公司层面的年度授予总量，还是您个人可获授的数量？如公司有单独的股权激励计划文件，也请提供名称或文号以便检索。\",\"decision_summary\":\"多轮不同关键词检索均返回空结果，无任何可读原文，无法形成有依据的回答，故标记资料缺口并追问具体激励类型与口径。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 1486,
+        "completion_tokens": 248,
+        "total_tokens": 1734,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 206
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.625,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "incomplete",
+    "reason_code": "missing_scope",
+    "answer": "制度库中未检索到任何关于股票期权或股权激励的规定，因此无法回答公司每年给员工多少股票期权。已用“股票期权 授予 数量”“股权激励 年度授予”“期权”“长期激励 薪酬”等关键词检索，均无匹配文档，未读取到任何原文，故不能给出数量、比例或授予规则。",
+    "citations": [],
+    "gaps": [
+      "制度库中没有股票期权/股权激励相关制度原文，缺少授予数量、授予对象、频次等规定",
+      "若期权授予由董事会决议、激励计划方案或劳动合同约定而非公司制度文件，需提供相应文件"
+    ],
+    "clarification_question": "请问您指的是哪一类激励（如股票期权激励计划、限制性股票）？以及您希望了解的是公司层面的年度授予总量，还是您个人可获授的数量？如公司有单独的股权激励计划文件，也请提供名称或文号以便检索。",
+    "decision_summary": "多轮不同关键词检索均返回空结果，无任何可读原文，无法形成有依据的回答，故标记资料缺口并追问具体激励类型与口径。",
+    "trace_id": "20261030T202857Z_82bef624"
+  },
+  "model_calls": 3,
+  "tool_calls": 4,
+  "elapsed_seconds": 5.281,
+  "finished_at": "2026-10-30T20:29:02.553814+00:00"
+}

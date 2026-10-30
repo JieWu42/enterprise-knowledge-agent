@@ -1,0 +1,16 @@
+{
+  "case_id": "step-limit",
+  "status": "incomplete",
+  "reason_code": "step_limit",
+  "checks": {
+    "status": true,
+    "reason_code": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 1,
+  "tool_calls": 1,
+  "seconds": 1.187,
+  "trace_path": "step-limit/trace.json"
+}

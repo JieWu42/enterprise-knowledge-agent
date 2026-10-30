@@ -4,7 +4,7 @@
 
 仓库：https://github.com/JieWu42/enterprise-knowledge-agent 。仓库公开可读，默认分支 main。
 
-实际投入约 2.5 小时。最终 commit SHA 以提交时固定的版本为准，在仓库目录执行 git rev-parse HEAD 获取；SHA 不写入同一提交的内容，避免自引用。
+实际投入约 2.8 小时。最终 commit SHA 以提交时固定的版本为准，在仓库目录执行 git rev-parse HEAD 获取；SHA 不写入同一提交的内容，避免自引用。
 
 ## 快速验证
 
@@ -26,7 +26,7 @@ python run.py --mode mock --question "境内差旅报销期限？"
 
 1. README.md 和 docs/01-requirements.md：用户、范围、运行入口。
 2. docs/02-solution.md 与 src/knowledge_agent/agent.py：模型选择动作、工具观察和结束条件。
-3. docs/03-evaluation.md：21 项工程测试、最新 15 项真实模型用例的自动断言、原始失败及限制。
+3. docs/03-evaluation.md：24 项工程测试、最新 17 项真实模型用例的自动断言、原始失败及限制；docs/09-retrieval-improvement.md 提供 12 条查询的检索消融。
 4. examples/personal-validation/review.md：本人独立运行与验收。
 5. docs/04-ai-usage.md、docs/05-retrospective.md、docs/06-contribution-log.md：AI 范围、实际收获和个人贡献。
 

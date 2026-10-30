@@ -1,0 +1,16 @@
+{
+  "id": "user-annual-leave",
+  "question": "今年是否有带薪年假，具体如何申请？",
+  "expected_status": [
+    "partially_answered"
+  ],
+  "required_citations": [
+    "LEAVE-REQUEST"
+  ],
+  "required_answer_terms": [
+    "人事",
+    "审批"
+  ],
+  "require_gap": true,
+  "author": "吴杰提出复合问题并选择部分回答策略；AI 整理措辞与断言"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "paraphrase",
+  "question": "我在中国上班，这次也是在国内出差，回来后最晚什么时候把费用单据交上去？",
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "EXPENSE-CN"
+  ],
+  "required_answer_terms": [
+    "20"
+  ],
+  "author": "AI 起草，与 normal 配对"
+}

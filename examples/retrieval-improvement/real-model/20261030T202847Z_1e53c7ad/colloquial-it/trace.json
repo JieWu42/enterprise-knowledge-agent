@@ -1,0 +1,250 @@
+{
+  "trace_id": "20261030T203006Z_373baa07",
+  "started_at": "2026-10-30T20:30:06.080958+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "公司配发的笔记本开不了机了，应该怎么办？",
+    "history": []
+  },
+  "retrieval_config": {
+    "method": "character_bigrams",
+    "query_expansion": true,
+    "expansion_weight": 0.5,
+    "aliases_sha256": "27e231e3bed5050edad5ed0a6a99adfc6d57b38cbd3198d338ad4b6012e3ea66"
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索公司关于办公设备报修的制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_NPM6eslfWpK4L6AS781z1903",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"笔记本 电脑 报修 故障\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_L9KeLvQ4mzfD7tPQY5UK9686",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"办公设备 维修 流程\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1063,
+        "completion_tokens": 123,
+        "total_tokens": 1186,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 167
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.5,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "笔记本 电脑 报修 故障",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "笔记本 电脑 报修 故障",
+            "results": [
+              {
+                "document_id": "IT-SUPPORT",
+                "title": "办公设备故障处理",
+                "version_date": "2026-07-01",
+                "scope": "公司配发的办公设备",
+                "score": 0.4444,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+              }
+            ],
+            "applied_aliases": [
+              {
+                "term": "笔记本",
+                "expansions": [
+                  "办公电脑"
+                ]
+              }
+            ],
+            "total_matches": 1,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "办公设备 维修 流程",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "办公设备 维修 流程",
+            "results": [
+              {
+                "document_id": "IT-SUPPORT",
+                "title": "办公设备故障处理",
+                "version_date": "2026-07-01",
+                "scope": "公司配发的办公设备",
+                "score": 0.7143,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+              },
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.1429,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "本流程不规定员工的年假天数；年假额度须查询个人账户或向人事确认。"
+              }
+            ],
+            "applied_aliases": [],
+            "total_matches": 2,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_bApKjQZJ6XKi3dz7wUQy3701",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"IT-SUPPORT\", \"paragraph_ids\": [\"p1\"]}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1625,
+        "completion_tokens": 62,
+        "total_tokens": 1687,
+        "prompt_tokens_details": {
+          "cached_tokens": 1152
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 473
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.25,
+      "tools": [
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "IT-SUPPORT",
+            "paragraph_ids": [
+              "p1"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "IT-SUPPORT",
+            "title": "办公设备故障处理",
+            "version_date": "2026-07-01",
+            "scope": "公司配发的办公设备",
+            "available_paragraph_ids": [
+              "p1"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"answered\",\"reason_code\":\"sufficient_evidence\",\"answer\":\"公司配发的笔记本属于公司配发的办公设备，适用《办公设备故障处理》。按该制度：办公电脑发生故障时，应通过 IT 工单系统报修，并在工单中记录设备编号和故障现象；维修前应按公司流程备份工作文件。制度原文未规定报修后的响应时限、送修地点或备用机安排，如需了解这些内容，请向 IT 部门确认。\",\"citations\":[{\"document_id\":\"IT-SUPPORT\",\"version_date\":\"2026-07-01\",\"paragraph_id\":\"p1\",\"quote\":\"办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。\"}],\"gaps\":[],\"clarification_question\":\"\",\"decision_summary\":\"检索到唯一相关制度《办公设备故障处理》，其适用范围为公司配发的办公设备，已读取原文并据此回答报修方式与备份要求；用户未询问响应时限等未规定事项，故不列为缺口。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 1803,
+        "completion_tokens": 230,
+        "total_tokens": 2033,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 139
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.046,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "reason_code": "sufficient_evidence",
+    "answer": "公司配发的笔记本属于公司配发的办公设备，适用《办公设备故障处理》。按该制度：办公电脑发生故障时，应通过 IT 工单系统报修，并在工单中记录设备编号和故障现象；维修前应按公司流程备份工作文件。制度原文未规定报修后的响应时限、送修地点或备用机安排，如需了解这些内容，请向 IT 部门确认。",
+    "citations": [
+      {
+        "document_id": "IT-SUPPORT",
+        "version_date": "2026-07-01",
+        "paragraph_id": "p1",
+        "quote": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+      }
+    ],
+    "gaps": [],
+    "clarification_question": "",
+    "decision_summary": "检索到唯一相关制度《办公设备故障处理》，其适用范围为公司配发的办公设备，已读取原文并据此回答报修方式与备份要求；用户未询问响应时限等未规定事项，故不列为缺口。",
+    "trace_id": "20261030T203006Z_373baa07"
+  },
+  "model_calls": 3,
+  "tool_calls": 3,
+  "elapsed_seconds": 4.796,
+  "finished_at": "2026-10-30T20:30:10.869810+00:00"
+}

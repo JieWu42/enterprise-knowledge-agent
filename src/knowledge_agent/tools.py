@@ -20,8 +20,19 @@ class UnknownParagraphError(ValueError):
 
 
 class DocumentStore:
-    def __init__(self, path):
+    def __init__(self, path, expand_query=True):
         self.path = Path(path)
+        self.expand_query = expand_query
+        aliases_path = Path(__file__).resolve().parents[2] / "data" / "retrieval_aliases.json"
+        aliases_raw = aliases_path.read_bytes()
+        self.aliases_sha256 = hashlib.sha256(aliases_raw).hexdigest()
+        self.aliases = json.loads(aliases_raw.decode("utf-8-sig"))
+        if not isinstance(self.aliases, dict) or any(
+            not isinstance(term, str) or not term.strip() or not isinstance(values, list) or not values
+            or any(not isinstance(value, str) or not value.strip() for value in values)
+            for term, values in self.aliases.items()
+        ):
+            raise ValueError("Invalid retrieval alias configuration")
         raw = self.path.read_bytes()
         self.sha256 = hashlib.sha256(raw).hexdigest()
         documents = json.loads(raw.decode("utf-8-sig"))
@@ -39,20 +50,39 @@ class DocumentStore:
                 raise ValueError("Empty paragraph text")
             self.docs[document["id"]] = document
 
+    @property
+    def retrieval_config(self):
+        return {"method": "character_bigrams", "query_expansion": self.expand_query,
+                "expansion_weight": 0.5, "aliases_sha256": self.aliases_sha256}
+
     def search(self, query, top_k=5):
         if not isinstance(query, str) or not query.strip() or len(query) > 500:
             raise ValueError("query must contain 1..500 characters")
         if type(top_k) is not int or not 1 <= top_k <= 8:
             raise ValueError("top_k must be an integer in 1..8")
         query_grams = grams(query)
+        additions, applied_aliases = [], []
+        if self.expand_query:
+            for term, values in self.aliases.items():
+                if term.casefold() in query.casefold():
+                    applied_aliases.append({"term": term, "expansions": values})
+                    additions.extend(values)
+                if len(applied_aliases) >= 12:
+                    break
+        added_grams = set().union(*(grams(term) for term in additions)) - query_grams if additions else set()
+
+        def overlap(text):
+            features = grams(text)
+            return len(query_grams & features) + 0.5 * len(added_grams & features)
+
         results = []
         for doc in self.docs.values():
             metadata = doc["title"] + doc["scope"]
-            paragraph = max(doc["paragraphs"], key=lambda p: len(query_grams & grams(p["text"])))
-            overlap = len(query_grams & grams(metadata + paragraph["text"]))
-            if not overlap:
+            paragraph = max(doc["paragraphs"], key=lambda p: overlap(p["text"]))
+            matched = overlap(metadata + paragraph["text"])
+            if not matched:
                 continue
-            score = round(overlap / max(len(query_grams), 1), 4)
+            score = round(matched / max(len(query_grams) + 0.5 * len(added_grams), 1), 4)
             results.append({
                 "document_id": doc["id"], "title": doc["title"],
                 "version_date": doc["version_date"], "scope": doc["scope"],
@@ -62,6 +92,7 @@ class DocumentStore:
             })
         results.sort(key=lambda x: (-x["score"], x["document_id"]))
         return {"ok": True, "query": query, "results": results[:top_k],
+                "applied_aliases": applied_aliases,
                 "total_matches": len(results), "truncated": len(results) > top_k}
 
     def read(self, document_id, paragraph_ids):

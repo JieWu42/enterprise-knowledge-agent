@@ -1,0 +1,17 @@
+{
+  "case_id": "transient-failure",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_EXPENSE-CN": true,
+    "observed_tool_failure": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 4,
+  "tool_calls": 6,
+  "seconds": 5.985,
+  "trace_path": "transient-failure/trace.json"
+}

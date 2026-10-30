@@ -91,6 +91,25 @@ class ToolTests(unittest.TestCase):
     def test_unknown_tool(self):
         self.assertEqual("invalid_tool", self.executor.execute("publish", {})["error"]["code"])
 
+    def test_domain_alias_retrieves_colloquial_query_and_preserves_input(self):
+        query = "笔记本开不了机"
+        expanded = self.store.search(query)
+        self.assertEqual(query, expanded["query"])
+        self.assertEqual("IT-SUPPORT", expanded["results"][0]["document_id"])
+        self.assertTrue(expanded["applied_aliases"])
+        baseline = DocumentStore(ROOT / "data" / "documents.json", expand_query=False).search(query)
+        self.assertEqual([], baseline["applied_aliases"])
+        self.assertEqual([], baseline["results"])
+
+    def test_expansion_does_not_turn_search_hits_into_read_evidence(self):
+        result = self.executor.execute("search_documents", {"query": "笔记本开不了机", "top_k": 5})
+        self.assertTrue(result["applied_aliases"])
+        self.assertEqual({}, self.executor.read_evidence)
+
+    def test_unknown_terms_do_not_create_aliases(self):
+        result = self.store.search("股票期权分配额度")
+        self.assertEqual([], result["applied_aliases"])
+
     def test_failure_once_then_recovery(self):
         executor = ToolExecutor(self.store, "read_document", 1)
         arguments = {"document_id": "EXPENSE-CN", "paragraph_ids": ["p1"]}

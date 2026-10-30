@@ -1,0 +1,18 @@
+{
+  "source_sha256": "f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe",
+  "queries_sha256": "8d8974561a733ecf250bedd1e56e514927d400baa75bd16c875d6038eb3d79a4",
+  "query_count": 12,
+  "scope": "Visible synthetic development set; dictionary-assisted query expansion; not held-out or end-to-end QA accuracy",
+  "variants": {
+    "baseline": {
+      "hit_at_1": 0.5833333333333334,
+      "macro_recall_at_3": 0.7916666666666666,
+      "mrr_at_8": 0.6805555555555555
+    },
+    "expanded": {
+      "hit_at_1": 0.9166666666666666,
+      "macro_recall_at_3": 1.0,
+      "mrr_at_8": 0.9583333333333334
+    }
+  }
+}

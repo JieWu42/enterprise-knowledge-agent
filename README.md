@@ -2,18 +2,19 @@
 
 一个面向合成企业制度的 CLI 助手：模型自主检索、读取原文，根据证据继续补查、回答、追问或停止。包含真实模型接口、离线固定流程、执行上限、引用来源校验和实际运行记录。
 
-实际投入约 2.5 小时。核心实现、验证材料和本人三类场景的独立运行已完成；当前为合成资料下的 CLI 原型。[GitHub 仓库](https://github.com/JieWu42/enterprise-knowledge-agent)公开可读。个人工作与 AI 辅助范围见下列记录。
+实际投入约 2.8 小时。核心实现、验证材料和本人三类场景的独立运行已完成；当前为合成资料下的 CLI 原型。[GitHub 仓库](https://github.com/JieWu42/enterprise-knowledge-agent)公开可读。个人工作与 AI 辅助范围见下列记录。
 
 ## 评审入口
 
 - [需求与成功标准](docs/01-requirements.md)
 - [提交与快速复现](docs/07-submission.md)
 - [题目要求与验收证据对照](docs/08-acceptance-checklist.md)
+- [追加亮点：轻量同义词扩展与检索对照](docs/09-retrieval-improvement.md)：12 条开发问题的首位命中从 7/12 提升至 11/12，保留基线、消融开关和逐题排名。
 - [模型决策与实现取舍](docs/02-solution.md)
 - [实际验证与限制](docs/03-evaluation.md)
 - [AI 辅助范围](docs/04-ai-usage.md)和[个人贡献记录](docs/06-contribution-log.md)
 - [真实运行目录](examples/evaluation/)：每个用例包含输入、预期、实际输出、Trace 和自动断言；summary.json 汇总状态。
-- [最新 15 项真实模型回归](examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/summary.json)及[段落编号改进前后对照](examples/improvement/paragraph-discovery/comparison.md)。21 项工程测试与真实模型测试分开报告。
+- [最新 17 项真实模型回归](examples/retrieval-improvement/real-model/20261030T202847Z_1e53c7ad/summary.json)及[段落编号改进前后对照](examples/improvement/paragraph-discovery/comparison.md)。24 项工程测试与真实模型测试分开报告。
 - [年假问题改进前](examples/first-runs/user-annual-leave/)与[改进后](examples/improvement/after/)。失败表现保留，不用后来的结果覆盖。
 - [自然冲突与明确替代对照](examples/scenario-validation/summary.json)：同一个问题，仅增加替代条款后，模型由待澄清转为明确回答。
 
@@ -69,6 +70,10 @@ python scripts/evaluate.py --mode real --cases natural-conflict,explicit-replace
 python scripts/check_scenario_runs.py
 python scripts/compare_paragraph_discovery.py
 
+# 文档级检索对照，不调用模型；原问题集与两种排名均可查看。
+python scripts/retrieval_benchmark.py
+python run.py --question "出国出差回来，最晚什么时候交账？" --no-query-expansion
+
 # 离线只检查执行流程，不能作为真实模型问答效果。
 python scripts/evaluate.py --mode mock
 ```
@@ -79,6 +84,6 @@ python scripts/evaluate.py --mode mock
 
 ## 边界
 
-所有制度为合成测试数据，不代表真实公司规则。小型资料库使用轻量中文检索，未接向量库。引用核验保证已读来源、版本和原文片段匹配，不自动证明语义支持。详见评估文档。
+所有制度为合成测试数据，不代表真实公司规则。小型资料库使用轻量中文检索与可关闭的领域词扩展，未接向量库。扩展会引入噪声候选，命中不等于适用。引用核验保证已读来源、版本和原文片段匹配，不自动证明语义支持。详见评估文档。
 
 仓库不包含密钥、真实员工数据或完整考试题面。当前本地源码版本通过 Trace 的 source_sha256 关联；正式提交时再固定最终 Git commit SHA。

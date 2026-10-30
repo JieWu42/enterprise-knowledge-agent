@@ -1,0 +1,19 @@
+{
+  "case_id": "explicit-replacement",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_MEAL-B": true,
+    "citation_MEAL-B_p1": true,
+    "citation_MEAL-B_p2": true,
+    "contains_14": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 4,
+  "seconds": 4.875,
+  "trace_path": "explicit-replacement/trace.json"
+}

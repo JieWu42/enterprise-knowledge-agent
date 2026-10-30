@@ -1,0 +1,14 @@
+{
+  "id": "colloquial-it",
+  "question": "公司配发的笔记本开不了机了，应该怎么办？",
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "IT-SUPPORT"
+  ],
+  "required_answer_terms": [
+    "工单"
+  ],
+  "author": "AI 为轻量检索迭代补充口语问法，验证端到端结果"
+}

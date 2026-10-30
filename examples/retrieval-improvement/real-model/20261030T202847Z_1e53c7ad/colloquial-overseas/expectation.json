@@ -1,0 +1,14 @@
+{
+  "id": "colloquial-overseas",
+  "question": "出国出差回来，最晚什么时候交账？",
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "EXPENSE-INTL"
+  ],
+  "required_answer_terms": [
+    "45"
+  ],
+  "author": "AI 为轻量检索迭代补充口语问法，验证端到端结果"
+}

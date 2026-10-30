@@ -8,9 +8,10 @@
 - 模型请求名 deepseek-chat；首轮服务端返回名为 deepseek-flash，逐步实际名称保存在每份 Trace。
 - [首轮完整真实模型运行](../examples/evaluation/20261030T194014Z_9e45c8cf/summary.json)。12 组用例的自动断言均通过。
 - [新增自然冲突与明确替代对照](../examples/scenario-validation/summary.json)：2 组真实模型运行通过对应自动断言，见下文。
-- [最新完整真实模型回归](../examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/summary.json)：15 项用例的自动断言均通过。包含原 12 项、两项自然文本对照和一项规则概览反向用例。
-- [确定性测试报告目录](../examples/test-results/)。最新 21 项测试通过，0 failures、0 errors；这些测试使用固定响应替身，不证明模型决策效果。
-- 最新真实评测源码 SHA256：d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a。首轮源码摘要为 7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7，各 Trace 保留其对应版本；修改资料用例使用隔离副本。
+- [上一轮完整真实模型回归](../examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/summary.json)：15 项用例的自动断言均通过。
+- [追加检索迭代后的最新真实模型回归](../examples/retrieval-improvement/real-model/20261030T202847Z_1e53c7ad/summary.json)：17 项自动断言均通过，保留原 15 项并增加两项口语问题。
+- [确定性测试报告目录](../examples/test-results/)。最新 24 项测试通过，0 failures、0 errors；测试含确定性检索、执行与固定响应替身，不证明真实模型决策效果。
+- 最新真实评测源码 SHA256：f18fcc9812502784e7419b73a3338d1faa5535a88b0844c3e36c9abfbd94d1fe。上轮为 d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a，各 Trace 保留对应源码和资料摘要；新增检索配置及词表摘要供复核。
 
 ## 首轮逐例验证
 
@@ -63,7 +64,7 @@
 2. 持续读取失败的回答仍转述检索摘要中的数值，虽明确注明不能据此确认，但面向员工可能造成误读；可进一步评估是否应完全去掉未核验数值。
 3. 来源匹配不证明语义蕴含。normal 等回答使用“从行程结束之日起算”的解释，资料没有精确规定是否含结束当日，不应把它作为精确日期计算依据。
 4. 首轮合成冲突文档自述缺少优先级，属于较容易的样例。新增自然文本对照已去掉此提示，见下文；每套仅一次运行，仍未证明对隐含适用范围、多跳冲突或更多自然文本的鲁棒性。
-5. 检索只有字符重叠，不保证召回所有冲突；资料外问题可能命中无关常用词。没有测量真实企业资料库表现。
+5. 检索为字符片段匹配加领域词扩展，不保证召回所有冲突；资料外问题可能命中无关常用词。新增词也可能引入噪声。没有测量真实企业资料库表现。
 6. 模型网络不可用由可控替身检查错误传播；不是实际断开模型服务后的在线实验。Mock 只证明流程。
 7. 资料、问题和提示都在开发阶段可见；本轮属于开发集回归，未作为独立盲测集。不能报告为真实企业问答准确率。
 8. 本人三类场景的独立运行已完成，仓库已公开，远端版本与本地版本已核对；最终提交 SHA 在交付时固定。独立核心代码讲解、更广泛的语义复核和复杂资料测试仍是后续改进。
@@ -91,7 +92,7 @@ A 有 2 次无效段落读取，B 有 1 次，模型均收到真实错误后修�
 
 随后在系统提示中加入通用原则：个人适用结论缺少必要条件时须追问，规则概览则可直接列出分支。没有按特定关键词硬编码业务动作。新增 policy-overview 作为反向测试，防止把所有制度比较都变成追问。
 
-针对性两项测试均通过；最新完整 15 项回归也通过自动断言。最终版本的 [missing-scope](../examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/missing-scope/output.json)返回 needs_clarification 并询问差旅类型，[policy-overview](../examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/policy-overview/output.json)返回 answered 并引用两份制度。最终版本的两组自然文本对照均未发生无效段落读取。
+针对性两项测试均通过；该轮完整 15 项回归也通过自动断言。该轮版本的 [missing-scope](../examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/missing-scope/output.json)返回 needs_clarification 并询问差旅类型，[policy-overview](../examples/improvement/scope-clarification/final/20261030T195833Z_23792fba/policy-overview/output.json)返回 answered 并引用两份制度。最终版本的两组自然文本对照均未发生无效段落读取。
 
 这两步改动分开保存：工具接口对照对应 d8674292dc3059824ee219b3b143996f366f4632e43138bc5271c57b9571eb9c，最终提示修正对应 d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a。中间失败没有被最终成功覆盖。
 
@@ -103,4 +104,10 @@ A 有 2 次无效段落读取，B 有 1 次，模型均收到真实错误后修�
 
 新增配对用例：python scripts/evaluate.py --mode real --cases natural-conflict,explicit-replacement。仅检查已保存对照、无需 API：python scripts/check_scenario_runs.py。资料副本可用 python scripts/prepare_scenarios.py 重建。
 
-检查保留的工具接口改进对照：python scripts/compare_paragraph_discovery.py。最新输入与预期清单共 15 项，完整执行仍为 python scripts/evaluate.py --mode real。
+检查保留的工具接口改进对照：python scripts/compare_paragraph_discovery.py。最新输入与预期清单共 17 项，完整执行仍为 python scripts/evaluate.py --mode real。
+
+## 追加的文档级检索消融
+
+在固定的 12 条开发查询上比较原字符片段基线与领域同义词扩展：Hit@1 为 7/12→11/12，宏平均 Recall@3 为 79.2%→100%，MRR@8 为 0.6806→0.9583。关闭扩展时的排名与改动前快照逐条一致。仍保留一条首位排名错误，未对其继续特调。
+
+这是合成开发资料上的文档级检索指标，不能称为问答准确率。词表与测试面向相同领域，不是独立盲测。全部问题、标注、基线、逐题结果和复现命令见 [检索改进报告](09-retrieval-improvement.md)。运行命令为 python scripts/retrieval_benchmark.py，不调用模型。
