@@ -1,0 +1,282 @@
+{
+  "trace_id": "20261030T195843Z_ba22130a",
+  "started_at": "2026-10-30T19:58:43.388603+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "公司每年给员工多少股票期权？",
+    "history": []
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索公司关于股票期权授予的制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_ITR7bn1IOfEcxEKcr5Zy3102",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"股票期权 授予 数量\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_tBkAI7jnOUS8dqhCZS7v2117",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"股权激励 年度 额度\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1059,
+        "completion_tokens": 120,
+        "total_tokens": 1179,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 163
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.297,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "股票期权 授予 数量",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "股票期权 授予 数量",
+            "results": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "股权激励 年度 额度",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "股权激励 年度 额度",
+            "results": [
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.1429,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "本流程不规定员工的年假天数；年假额度须查询个人账户或向人事确认。"
+              }
+            ],
+            "total_matches": 1,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会尝试其他关键词，确认是否存在任何股权或期权政策。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_eWK11rvJeBnBo7EAvJGo1936",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"期权 激励计划\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_2GIfHtC9XCEoE4ar9zCv3185",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"员工持股 股权授予\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_Ih2HwHfqVKWIb9H1Lf3A2530",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"薪酬 福利 长期激励\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1368,
+        "completion_tokens": 171,
+        "total_tokens": 1539,
+        "prompt_tokens_details": {
+          "cached_tokens": 1152
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 216
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 2.844,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "期权 激励计划",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "期权 激励计划",
+            "results": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "员工持股 股权授予",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "员工持股 股权授予",
+            "results": [
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.1429,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.1429,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.1429,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              }
+            ],
+            "total_matches": 3,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "薪酬 福利 长期激励",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "薪酬 福利 长期激励",
+            "results": [],
+            "total_matches": 0,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"incomplete\",\"reason_code\":\"missing_scope\",\"answer\":\"现有制度资料中没有关于股票期权授予的规定，因此无法回答“公司每年给员工多少股票期权”。我以“股票期权 授予 数量”“股权激励 年度 额度”“期权 激励计划”“员工持股 股权授予”“薪酬 福利 长期激励”等关键词检索，均未找到任何股权激励或期权相关制度；仅返回了请假、差旅报销等无关文档。因此，年度授予数量、适用人员范围、授予条件等均无原文依据，不能推测。\",\"citations\":[],\"gaps\":[\"制度库中未检索到股票期权/股权激励相关制度，缺少年度授予数量、适用人员范围及授予条件的原文依据\"],\"clarification_question\":\"您是否确认公司存在股票期权或股权激励制度？如有，请提供制度名称、文档编号或发布部门，以便进一步定位；若该事项不在本制度库范围内，建议向人力资源部或薪酬委员会确认。\",\"decision_summary\":\"多轮改写检索均无期权/股权激励制度命中，仅有无关文档，属资料缺口，无法给出任何数值或规则。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 1986,
+        "completion_tokens": 246,
+        "total_tokens": 2232,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 450
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.422,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "incomplete",
+    "reason_code": "missing_scope",
+    "answer": "现有制度资料中没有关于股票期权授予的规定，因此无法回答“公司每年给员工多少股票期权”。我以“股票期权 授予 数量”“股权激励 年度 额度”“期权 激励计划”“员工持股 股权授予”“薪酬 福利 长期激励”等关键词检索，均未找到任何股权激励或期权相关制度；仅返回了请假、差旅报销等无关文档。因此，年度授予数量、适用人员范围、授予条件等均无原文依据，不能推测。",
+    "citations": [],
+    "gaps": [
+      "制度库中未检索到股票期权/股权激励相关制度，缺少年度授予数量、适用人员范围及授予条件的原文依据"
+    ],
+    "clarification_question": "您是否确认公司存在股票期权或股权激励制度？如有，请提供制度名称、文档编号或发布部门，以便进一步定位；若该事项不在本制度库范围内，建议向人力资源部或薪酬委员会确认。",
+    "decision_summary": "多轮改写检索均无期权/股权激励制度命中，仅有无关文档，属资料缺口，无法给出任何数值或规则。",
+    "trace_id": "20261030T195843Z_ba22130a"
+  },
+  "model_calls": 3,
+  "tool_calls": 5,
+  "elapsed_seconds": 6.563,
+  "finished_at": "2026-10-30T19:58:49.944611+00:00"
+}

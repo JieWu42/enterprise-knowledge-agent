@@ -1,0 +1,23 @@
+{
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "answer": "差旅报销的提交时限取决于差旅类型，两份制度按适用范围区分，并不冲突：\n1. 境内差旅（适用于中国境内员工的境内差旅）：应在行程结束后20个自然日内提交差旅报销申请。\n2. 境外差旅（适用于境外差旅，不论员工常驻地）：应在行程结束后45个自然日内提交差旅报销申请。\n请按你的实际行程类型对应适用。",
+  "citations": [
+    {
+      "document_id": "EXPENSE-CN",
+      "version_date": "2026-08-01",
+      "paragraph_id": "p1",
+      "quote": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+    },
+    {
+      "document_id": "EXPENSE-INTL",
+      "version_date": "2026-08-01",
+      "paragraph_id": "p1",
+      "quote": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+    }
+  ],
+  "gaps": [],
+  "clarification_question": "",
+  "decision_summary": "检索到两份差旅报销办法，均已读取原文；两者适用范围分别明示为境内差旅与境外差旅，可依行程类型直接适用，无需澄清。",
+  "trace_id": "20261030T195719Z_e9a5f87b"
+}

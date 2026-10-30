@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-10-30T19:54:05.934889+00:00",
+  "cases": [
+    {
+      "case_id": "natural-conflict",
+      "trace_path": "natural-conflict/20261030T195249Z_be231d7e/trace.json",
+      "status": "needs_clarification",
+      "model_calls": 4,
+      "tool_calls": 6,
+      "checks": {
+        "status": true,
+        "citation_MEAL-A": true,
+        "citation_MEAL-B": true,
+        "gap": true,
+        "within_model_limit": true,
+        "within_tool_limit": true,
+        "real_model": true,
+        "expected_input": true
+      },
+      "automatic_checks_passed": true,
+      "source_sha256": "7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7",
+      "corpus_sha256": "ac7779d3b3803b1546ce357a7ea1e4ca8a5b1939fd9912ec75cc578e20d2b5a6"
+    },
+    {
+      "case_id": "explicit-replacement",
+      "trace_path": "explicit-replacement/20261030T195249Z_306c1eae/trace.json",
+      "status": "answered",
+      "model_calls": 4,
+      "tool_calls": 5,
+      "checks": {
+        "status": true,
+        "citation_MEAL-B": true,
+        "citation_MEAL-B_p1": true,
+        "citation_MEAL-B_p2": true,
+        "contains_14": true,
+        "within_model_limit": true,
+        "within_tool_limit": true,
+        "real_model": true,
+        "expected_input": true
+      },
+      "automatic_checks_passed": true,
+      "source_sha256": "7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7",
+      "corpus_sha256": "faeacd6b1759f40c39ec4c4a3da152f22f82d872bf4e7d9d7a81902656e12abb"
+    }
+  ],
+  "pair_checks": {
+    "same_question": true,
+    "same_source": true,
+    "same_model_config": true,
+    "different_corpus": true
+  },
+  "scope": "Automatic checks over retained real-model traces; one run per scenario"
+}

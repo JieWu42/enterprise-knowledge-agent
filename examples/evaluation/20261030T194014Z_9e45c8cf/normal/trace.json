@@ -1,0 +1,298 @@
+{
+  "trace_id": "20261030T194014Z_3dc80d88",
+  "started_at": "2026-10-30T19:40:14.866018+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "我是中国境内员工，刚结束境内差旅，应在多少天内提交报销？",
+    "history": []
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索差旅报销相关的制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_jiKtMjK7Y0iaUAyEPSqn7526",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"差旅费报销 提交时限\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_wJxTt7FWwZySUmlH1jn35926",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"境内差旅 报销期限 天\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 935,
+        "completion_tokens": 122,
+        "total_tokens": 1057,
+        "prompt_tokens_details": {
+          "cached_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 768,
+        "prompt_cache_miss_tokens": 167
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.375,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "差旅费报销 提交时限",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "差旅费报销 提交时限",
+            "results": [
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.375,
+                "matched_paragraph_id": "p1",
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.375,
+                "matched_paragraph_id": "p1",
+                "snippet": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销说明 A",
+                "version_date": "2026-05-12",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.25,
+                "matched_paragraph_id": "p1",
+                "snippet": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐报销说明 B",
+                "version_date": "2026-09-03",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.25,
+                "matched_paragraph_id": "p1",
+                "snippet": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.25,
+                "matched_paragraph_id": "p1",
+                "snippet": "境内差旅应先提交出差审批，获批后通过企业差旅平台预订。火车按二等座标准预订。"
+              },
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "snippet": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              }
+            ],
+            "total_matches": 6,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "境内差旅 报销期限 天",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "境内差旅 报销期限 天",
+            "results": [
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.625,
+                "matched_paragraph_id": "p1",
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.375,
+                "matched_paragraph_id": "p1",
+                "snippet": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.375,
+                "matched_paragraph_id": "p1",
+                "snippet": "境内差旅应先提交出差审批，获批后通过企业差旅平台预订。火车按二等座标准预订。"
+              },
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销说明 A",
+                "version_date": "2026-05-12",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "snippet": "工作餐报销应在用餐后7个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              },
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐报销说明 B",
+                "version_date": "2026-09-03",
+                "scope": "工作餐，未注明地区或人群",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "snippet": "工作餐报销应在用餐后14个自然日内提交。本说明未注明适用地区、人群、优先级或替代关系。"
+              }
+            ],
+            "total_matches": 5,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会读取境内差旅报销办法的原文，确认具体规定。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_sEZeyyIplBPwMrtJyFDI2661",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"EXPENSE-CN\", \"paragraph_ids\": [\"p1\"]}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2169,
+        "completion_tokens": 75,
+        "total_tokens": 2244,
+        "prompt_tokens_details": {
+          "cached_tokens": 1024
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 1145
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.047,
+      "tools": [
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "EXPENSE-CN",
+            "paragraph_ids": [
+              "p1"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "EXPENSE-CN",
+            "title": "境内差旅报销办法",
+            "version_date": "2026-08-01",
+            "scope": "中国境内员工的境内差旅",
+            "available_paragraph_ids": [
+              "p1",
+              "p2"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"answered\",\"reason_code\":\"sufficient_evidence\",\"answer\":\"根据《境内差旅报销办法》，该办法适用于中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。你作为中国境内员工，刚结束境内差旅，因此适用这一时限：从行程结束之日起算，20个自然日内提交。\",\"citations\":[{\"document_id\":\"EXPENSE-CN\",\"version_date\":\"2026-08-01\",\"paragraph_id\":\"p1\",\"quote\":\"适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。\"}],\"gaps\":[],\"clarification_question\":\"\",\"decision_summary\":\"检索到《境内差旅报销办法》，其适用范围明确覆盖中国境内员工的境内差旅，并已读取原文确认提交时限为行程结束后20个自然日内，因此直接回答。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 2358,
+        "completion_tokens": 187,
+        "total_tokens": 2545,
+        "prompt_tokens_details": {
+          "cached_tokens": 2176
+        },
+        "prompt_cache_hit_tokens": 2176,
+        "prompt_cache_miss_tokens": 182
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 1.844,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "reason_code": "sufficient_evidence",
+    "answer": "根据《境内差旅报销办法》，该办法适用于中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。你作为中国境内员工，刚结束境内差旅，因此适用这一时限：从行程结束之日起算，20个自然日内提交。",
+    "citations": [
+      {
+        "document_id": "EXPENSE-CN",
+        "version_date": "2026-08-01",
+        "paragraph_id": "p1",
+        "quote": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+      }
+    ],
+    "gaps": [],
+    "clarification_question": "",
+    "decision_summary": "检索到《境内差旅报销办法》，其适用范围明确覆盖中国境内员工的境内差旅，并已读取原文确认提交时限为行程结束后20个自然日内，因此直接回答。",
+    "trace_id": "20261030T194014Z_3dc80d88"
+  },
+  "model_calls": 3,
+  "tool_calls": 3,
+  "elapsed_seconds": 4.266,
+  "finished_at": "2026-10-30T19:40:19.145326+00:00"
+}

@@ -1,0 +1,17 @@
+{
+  "case_id": "paraphrase",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_EXPENSE-CN": true,
+    "contains_20": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 3,
+  "seconds": 4.75,
+  "trace_path": "paraphrase/trace.json"
+}

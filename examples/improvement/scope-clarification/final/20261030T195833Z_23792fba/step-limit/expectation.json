@@ -1,0 +1,10 @@
+{
+  "id": "step-limit",
+  "question": "境内差旅报销期限是什么？",
+  "max_model_calls": 1,
+  "expected_status": [
+    "incomplete"
+  ],
+  "expected_reason": "step_limit",
+  "author": "AI 起草"
+}

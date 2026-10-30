@@ -1,0 +1,12 @@
+{
+  "status": "incomplete",
+  "reason_code": "step_limit",
+  "answer": "达到模型调用上限，任务尚未完成。",
+  "citations": [],
+  "gaps": [
+    "达到模型调用上限，任务尚未完成。"
+  ],
+  "clarification_question": "",
+  "decision_summary": "执行器根据实际执行状态停止",
+  "trace_id": "20261030T194109Z_a8bcf4c3"
+}

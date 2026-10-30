@@ -1,0 +1,251 @@
+{
+  "mode": "real",
+  "source_sha256": "d8674292dc3059824ee219b3b143996f366f4632e43138bc5271c57b9571eb9c",
+  "cases": [
+    {
+      "case_id": "normal",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-CN": true,
+        "contains_20": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 4.219,
+      "trace_path": "normal/trace.json"
+    },
+    {
+      "case_id": "conflict",
+      "status": "needs_clarification",
+      "reason_code": "conflict",
+      "checks": {
+        "status": true,
+        "citation_MEAL-A": true,
+        "citation_MEAL-B": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 4,
+      "seconds": 5.109,
+      "trace_path": "conflict/trace.json"
+    },
+    {
+      "case_id": "out-of-scope",
+      "status": "incomplete",
+      "reason_code": "missing_scope",
+      "checks": {
+        "status": true,
+        "not_answered": true,
+        "within_model_limit": true,
+        "within_tool_limit": true,
+        "no_unsupported_citation": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 4,
+      "seconds": 4.547,
+      "trace_path": "out-of-scope/trace.json"
+    },
+    {
+      "case_id": "paraphrase",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-CN": true,
+        "contains_20": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 4.75,
+      "trace_path": "paraphrase/trace.json"
+    },
+    {
+      "case_id": "context",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-CN": true,
+        "contains_发票": true,
+        "contains_审批": true,
+        "contains_行程": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 4.469,
+      "trace_path": "context/trace.json"
+    },
+    {
+      "case_id": "transient-failure",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-CN": true,
+        "observed_tool_failure": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 4,
+      "tool_calls": 4,
+      "seconds": 5.312,
+      "trace_path": "transient-failure/trace.json"
+    },
+    {
+      "case_id": "persistent-failure",
+      "status": "incomplete",
+      "reason_code": "tool_error",
+      "checks": {
+        "status": true,
+        "not_answered": true,
+        "observed_tool_failure": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 4,
+      "tool_calls": 4,
+      "seconds": 6.5,
+      "trace_path": "persistent-failure/trace.json"
+    },
+    {
+      "case_id": "user-annual-leave",
+      "status": "partially_answered",
+      "reason_code": "partial_evidence",
+      "checks": {
+        "status": true,
+        "citation_LEAVE-REQUEST": true,
+        "contains_人事": true,
+        "contains_审批": true,
+        "gap": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 4.531,
+      "trace_path": "user-annual-leave/trace.json"
+    },
+    {
+      "case_id": "cross-scope",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-INTL": true,
+        "contains_45": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 4,
+      "seconds": 5.187,
+      "trace_path": "cross-scope/trace.json"
+    },
+    {
+      "case_id": "missing-scope",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": false,
+        "gap": false,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": false,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 4.485,
+      "trace_path": "missing-scope/trace.json"
+    },
+    {
+      "case_id": "step-limit",
+      "status": "incomplete",
+      "reason_code": "step_limit",
+      "checks": {
+        "status": true,
+        "reason_code": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 1,
+      "tool_calls": 1,
+      "seconds": 1.032,
+      "trace_path": "step-limit/trace.json"
+    },
+    {
+      "case_id": "changed-document",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-CN": true,
+        "contains_25": true,
+        "excludes_20个自然日": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 4.641,
+      "trace_path": "changed-document/trace.json"
+    },
+    {
+      "case_id": "natural-conflict",
+      "status": "needs_clarification",
+      "reason_code": "conflict",
+      "checks": {
+        "status": true,
+        "citation_MEAL-A": true,
+        "citation_MEAL-B": true,
+        "gap": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 4,
+      "seconds": 5.25,
+      "trace_path": "natural-conflict/trace.json"
+    },
+    {
+      "case_id": "explicit-replacement",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_MEAL-B": true,
+        "citation_MEAL-B_p1": true,
+        "citation_MEAL-B_p2": true,
+        "contains_14": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 4,
+      "seconds": 4.859,
+      "trace_path": "explicit-replacement/trace.json"
+    }
+  ],
+  "scope": "Automatic assertions only; manual semantic review required"
+}

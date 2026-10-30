@@ -1,0 +1,23 @@
+{
+  "id": "changed-document",
+  "question": "我是中国境内员工，刚结束境内差旅，应在多少天内提交报销？",
+  "mutation": {
+    "document_id": "EXPENSE-CN",
+    "paragraph_id": "p1",
+    "old": "20个自然日",
+    "new": "25个自然日"
+  },
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "EXPENSE-CN"
+  ],
+  "required_answer_terms": [
+    "25"
+  ],
+  "forbidden_answer_terms": [
+    "20个自然日"
+  ],
+  "author": "AI 起草；与 normal 对照检验证据敏感性"
+}

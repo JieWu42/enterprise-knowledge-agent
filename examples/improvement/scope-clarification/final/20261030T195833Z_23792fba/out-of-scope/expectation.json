@@ -1,0 +1,10 @@
+{
+  "id": "out-of-scope",
+  "question": "公司每年给员工多少股票期权？",
+  "expected_status": [
+    "incomplete",
+    "needs_clarification"
+  ],
+  "forbid_answered": true,
+  "author": "AI 起草"
+}

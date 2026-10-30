@@ -1,0 +1,16 @@
+{
+  "id": "policy-overview",
+  "question": "请比较境内和境外差旅的报销提交期限，不是询问我个人适用哪一种。",
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "EXPENSE-CN",
+    "EXPENSE-INTL"
+  ],
+  "required_answer_terms": [
+    "20",
+    "45"
+  ],
+  "author": "AI 根据 missing-scope 的实际状态失败补充反向用例，防止过度追问"
+}

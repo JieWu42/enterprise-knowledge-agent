@@ -1,0 +1,17 @@
+{
+  "case_id": "persistent-failure",
+  "status": "incomplete",
+  "reason_code": "tool_error",
+  "checks": {
+    "status": true,
+    "not_answered": true,
+    "observed_tool_failure": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 4,
+  "tool_calls": 4,
+  "seconds": 5.11,
+  "trace_path": "persistent-failure/trace.json"
+}

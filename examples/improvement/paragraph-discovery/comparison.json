@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "case_id": "natural-conflict",
+      "before": {
+        "status": "needs_clarification",
+        "invalid_paragraph_reads": 2,
+        "tool_calls": 6,
+        "model_calls": 4,
+        "elapsed_seconds": 7.578,
+        "prompt_tokens": 8771,
+        "completion_tokens": 836
+      },
+      "after": {
+        "status": "needs_clarification",
+        "invalid_paragraph_reads": 0,
+        "tool_calls": 4,
+        "model_calls": 3,
+        "elapsed_seconds": 5.25,
+        "prompt_tokens": 6438,
+        "completion_tokens": 715
+      },
+      "controls": {
+        "same_input": true,
+        "same_corpus": true,
+        "same_requested_model": true,
+        "same_limits": true,
+        "real_model": true,
+        "source_changed": true
+      },
+      "after_automatic_checks_passed": true,
+      "before_trace": "../../scenario-validation/natural-conflict/20261030T195249Z_be231d7e/trace.json",
+      "after_trace": "after/20261030T195635Z_aa3ab217/natural-conflict/trace.json",
+      "before_source_sha256": "7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7",
+      "after_source_sha256": "d8674292dc3059824ee219b3b143996f366f4632e43138bc5271c57b9571eb9c"
+    },
+    {
+      "case_id": "explicit-replacement",
+      "before": {
+        "status": "answered",
+        "invalid_paragraph_reads": 1,
+        "tool_calls": 5,
+        "model_calls": 4,
+        "elapsed_seconds": 6.515,
+        "prompt_tokens": 8889,
+        "completion_tokens": 743
+      },
+      "after": {
+        "status": "answered",
+        "invalid_paragraph_reads": 0,
+        "tool_calls": 4,
+        "model_calls": 3,
+        "elapsed_seconds": 4.859,
+        "prompt_tokens": 6531,
+        "completion_tokens": 627
+      },
+      "controls": {
+        "same_input": true,
+        "same_corpus": true,
+        "same_requested_model": true,
+        "same_limits": true,
+        "real_model": true,
+        "source_changed": true
+      },
+      "after_automatic_checks_passed": true,
+      "before_trace": "../../scenario-validation/explicit-replacement/20261030T195249Z_306c1eae/trace.json",
+      "after_trace": "after/20261030T195635Z_aa3ab217/explicit-replacement/trace.json",
+      "before_source_sha256": "7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7",
+      "after_source_sha256": "d8674292dc3059824ee219b3b143996f366f4632e43138bc5271c57b9571eb9c"
+    }
+  ],
+  "after_full_suite_count": 14,
+  "after_full_suite_automatic_passed": 13,
+  "before_tools_sha256": "c0520fe31d6883a750dba8bd336330741549f4888b655370ee6b7be21cd56a65",
+  "scope": "Exploratory single-run comparison per scenario, not statistical or cost evidence. Tool metadata, error feedback and tool descriptions changed together."
+}

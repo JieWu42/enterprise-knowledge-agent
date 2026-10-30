@@ -1,0 +1,19 @@
+{
+  "case_id": "policy-overview",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_EXPENSE-CN": true,
+    "citation_EXPENSE-INTL": true,
+    "contains_20": true,
+    "contains_45": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 4,
+  "seconds": 4.765,
+  "trace_path": "policy-overview/trace.json"
+}

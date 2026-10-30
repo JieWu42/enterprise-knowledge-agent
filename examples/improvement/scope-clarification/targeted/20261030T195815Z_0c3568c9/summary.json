@@ -1,0 +1,42 @@
+{
+  "mode": "real",
+  "source_sha256": "d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a",
+  "cases": [
+    {
+      "case_id": "missing-scope",
+      "status": "needs_clarification",
+      "reason_code": "missing_scope",
+      "checks": {
+        "status": true,
+        "gap": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "seconds": 5.015,
+      "trace_path": "missing-scope/trace.json"
+    },
+    {
+      "case_id": "policy-overview",
+      "status": "answered",
+      "reason_code": "sufficient_evidence",
+      "checks": {
+        "status": true,
+        "citation_EXPENSE-CN": true,
+        "citation_EXPENSE-INTL": true,
+        "contains_20": true,
+        "contains_45": true,
+        "within_model_limit": true,
+        "within_tool_limit": true
+      },
+      "automatic_checks_passed": true,
+      "model_calls": 3,
+      "tool_calls": 4,
+      "seconds": 5.609,
+      "trace_path": "policy-overview/trace.json"
+    }
+  ],
+  "scope": "Automatic assertions only; manual semantic review required"
+}

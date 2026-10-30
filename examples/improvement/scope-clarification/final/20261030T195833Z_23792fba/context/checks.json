@@ -1,0 +1,19 @@
+{
+  "case_id": "context",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_EXPENSE-CN": true,
+    "contains_发票": true,
+    "contains_审批": true,
+    "contains_行程": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 4,
+  "seconds": 4.891,
+  "trace_path": "context/trace.json"
+}

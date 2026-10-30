@@ -1,0 +1,417 @@
+{
+  "trace_id": "20261030T195939Z_bf2fbbb5",
+  "started_at": "2026-10-30T19:59:39.423432+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "d38f54a089907ebe53bcb3acd47f304ec1058cb9ad18f22c86c501c70c46220a",
+  "corpus_sha256": "faeacd6b1759f40c39ec4c4a3da152f22f82d872bf4e7d9d7a81902656e12abb",
+  "input": {
+    "question": "2026年10月发生的工作餐费用，需要在几天内提交报销？",
+    "history": []
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索工作餐费用报销的相关制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_uyR8CNvoAWqHzvlgb0kH0344",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"工作餐费用报销时限\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_pnJ9iodvmi8T64yAbtqJ0314",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"费用报销提交期限 几天内\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1067,
+        "completion_tokens": 120,
+        "total_tokens": 1187,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 171
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.203,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "工作餐费用报销时限",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "工作餐费用报销时限",
+            "results": [
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销细则",
+                "version_date": "2026-05-12",
+                "scope": "员工因工作安排发生的工作餐费用",
+                "score": 0.625,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "员工因工作安排发生的工作餐费用，须在用餐后7个自然日内提交报销申请，并附发票及负责人审批记录。"
+              },
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐费用管理通知",
+                "version_date": "2026-09-03",
+                "scope": "员工因工作安排发生的工作餐费用",
+                "score": 0.625,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "员工因工作安排发生的工作餐费用，须在用餐后14个自然日内提交报销申请，并附发票及负责人审批记录。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.25,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境外差旅报销需要发票或当地收据、出差审批单与行程记录；非人民币费用需附支付凭证。"
+              },
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "IT-SUPPORT",
+                "title": "办公设备故障处理",
+                "version_date": "2026-07-01",
+                "scope": "公司配发的办公设备",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+              },
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.125,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.125,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "预订失败时可联系行政协助，未经审批的超标准费用须另行确认。"
+              }
+            ],
+            "total_matches": 7,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "费用报销提交期限 几天内",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "费用报销提交期限 几天内",
+            "results": [
+              {
+                "document_id": "MEAL-B",
+                "title": "工作餐费用管理通知",
+                "version_date": "2026-09-03",
+                "scope": "员工因工作安排发生的工作餐费用",
+                "score": 0.5,
+                "matched_paragraph_id": "p2",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "本通知自2026年9月3日起生效，替代2026年5月12日《工作餐报销细则》中关于提交期限的规定。其他材料要求维持原规定。"
+              },
+              {
+                "document_id": "MEAL-A",
+                "title": "工作餐报销细则",
+                "version_date": "2026-05-12",
+                "scope": "员工因工作安排发生的工作餐费用",
+                "score": 0.3,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1"
+                ],
+                "snippet": "员工因工作安排发生的工作餐费用，须在用餐后7个自然日内提交报销申请，并附发票及负责人审批记录。"
+              },
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.2,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.2,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.1,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              },
+              {
+                "document_id": "TRAVEL-BOOK",
+                "title": "差旅预订指南",
+                "version_date": "2026-07-15",
+                "scope": "已审批的境内差旅",
+                "score": 0.1,
+                "matched_paragraph_id": "p1",
+                "available_paragraph_ids": [
+                  "p1",
+                  "p2"
+                ],
+                "snippet": "境内差旅应先提交出差审批，获批后通过企业差旅平台预订。火车按二等座标准预订。"
+              }
+            ],
+            "total_matches": 6,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "我发现两份工作餐制度存在冲突，需要读取原文确认替代关系。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_IGw6mQPbBD84swkZN6QQ7334",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"MEAL-A\", \"paragraph_ids\": [\"p1\"]}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_aVj91fDwDNKq9z4dVJ9C2849",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"MEAL-B\", \"paragraph_ids\": [\"p1\", \"p2\"]}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 2664,
+        "completion_tokens": 131,
+        "total_tokens": 2795,
+        "prompt_tokens_details": {
+          "cached_tokens": 1152
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 1512
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.344,
+      "tools": [
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "MEAL-A",
+            "paragraph_ids": [
+              "p1"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "MEAL-A",
+            "title": "工作餐报销细则",
+            "version_date": "2026-05-12",
+            "scope": "员工因工作安排发生的工作餐费用",
+            "available_paragraph_ids": [
+              "p1"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "员工因工作安排发生的工作餐费用，须在用餐后7个自然日内提交报销申请，并附发票及负责人审批记录。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "MEAL-B",
+            "paragraph_ids": [
+              "p1",
+              "p2"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "MEAL-B",
+            "title": "工作餐费用管理通知",
+            "version_date": "2026-09-03",
+            "scope": "员工因工作安排发生的工作餐费用",
+            "available_paragraph_ids": [
+              "p1",
+              "p2"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "员工因工作安排发生的工作餐费用，须在用餐后14个自然日内提交报销申请，并附发票及负责人审批记录。"
+              },
+              {
+                "id": "p2",
+                "text": "本通知自2026年9月3日起生效，替代2026年5月12日《工作餐报销细则》中关于提交期限的规定。其他材料要求维持原规定。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"answered\",\"reason_code\":\"sufficient_evidence\",\"answer\":\"根据现行规定，员工因工作安排发生的工作餐费用，须在用餐后14个自然日内提交报销申请，并附发票及负责人审批记录。2026年10月发生的费用适用该期限：2026年9月3日生效的《工作餐费用管理通知》已明确替代2026年5月12日《工作餐报销细则》中关于提交期限的规定（原为7个自然日），材料要求维持不变。因此，2026年10月的工作餐费用应在用餐后14个自然日内提交报销。\",\"citations\":[{\"document_id\":\"MEAL-B\",\"version_date\":\"2026-09-03\",\"paragraph_id\":\"p1\",\"quote\":\"员工因工作安排发生的工作餐费用，须在用餐后14个自然日内提交报销申请，并附发票及负责人审批记录。\"},{\"document_id\":\"MEAL-B\",\"version_date\":\"2026-09-03\",\"paragraph_id\":\"p2\",\"quote\":\"本通知自2026年9月3日起生效，替代2026年5月12日《工作餐报销细则》中关于提交期限的规定。其他材料要求维持原规定。\"},{\"document_id\":\"MEAL-A\",\"version_date\":\"2026-05-12\",\"paragraph_id\":\"p1\",\"quote\":\"员工因工作安排发生的工作餐费用，须在用餐后7个自然日内提交报销申请，并附发票及负责人审批记录。\"}],\"gaps\":[],\"clarification_question\":\"\",\"decision_summary\":\"两份工作餐制度对提交期限分别规定7日和14日；已读取原文，MEAL-B p2 明示自2026年9月3日起替代MEAL-A中提交期限的规定，故2026年10月费用适用14个自然日，冲突已由原文明示的替代关系消解。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 3079,
+        "completion_tokens": 394,
+        "total_tokens": 3473,
+        "prompt_tokens_details": {
+          "cached_tokens": 2688
+        },
+        "prompt_cache_hit_tokens": 2688,
+        "prompt_cache_miss_tokens": 391
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.266,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "reason_code": "sufficient_evidence",
+    "answer": "根据现行规定，员工因工作安排发生的工作餐费用，须在用餐后14个自然日内提交报销申请，并附发票及负责人审批记录。2026年10月发生的费用适用该期限：2026年9月3日生效的《工作餐费用管理通知》已明确替代2026年5月12日《工作餐报销细则》中关于提交期限的规定（原为7个自然日），材料要求维持不变。因此，2026年10月的工作餐费用应在用餐后14个自然日内提交报销。",
+    "citations": [
+      {
+        "document_id": "MEAL-B",
+        "version_date": "2026-09-03",
+        "paragraph_id": "p1",
+        "quote": "员工因工作安排发生的工作餐费用，须在用餐后14个自然日内提交报销申请，并附发票及负责人审批记录。"
+      },
+      {
+        "document_id": "MEAL-B",
+        "version_date": "2026-09-03",
+        "paragraph_id": "p2",
+        "quote": "本通知自2026年9月3日起生效，替代2026年5月12日《工作餐报销细则》中关于提交期限的规定。其他材料要求维持原规定。"
+      },
+      {
+        "document_id": "MEAL-A",
+        "version_date": "2026-05-12",
+        "paragraph_id": "p1",
+        "quote": "员工因工作安排发生的工作餐费用，须在用餐后7个自然日内提交报销申请，并附发票及负责人审批记录。"
+      }
+    ],
+    "gaps": [],
+    "clarification_question": "",
+    "decision_summary": "两份工作餐制度对提交期限分别规定7日和14日；已读取原文，MEAL-B p2 明示自2026年9月3日起替代MEAL-A中提交期限的规定，故2026年10月费用适用14个自然日，冲突已由原文明示的替代关系消解。",
+    "trace_id": "20261030T195939Z_bf2fbbb5"
+  },
+  "model_calls": 3,
+  "tool_calls": 4,
+  "elapsed_seconds": 4.813,
+  "finished_at": "2026-10-30T19:59:44.228079+00:00"
+}

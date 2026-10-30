@@ -1,0 +1,17 @@
+{
+  "case_id": "cross-scope",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_EXPENSE-INTL": true,
+    "contains_45": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 4,
+  "seconds": 4.985,
+  "trace_path": "cross-scope/trace.json"
+}

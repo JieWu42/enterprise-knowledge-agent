@@ -1,0 +1,23 @@
+{
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "answer": "根据《境内差旅报销办法》（适用于中国境内员工的境内差旅），提交差旅报销需准备以下材料：1）电子发票；2）出差审批单；3）行程记录。材料缺失时，财务会退回要求补充。另需注意：应在行程结束后20个自然日内提交差旅报销申请。",
+  "citations": [
+    {
+      "document_id": "EXPENSE-CN",
+      "version_date": "2026-08-01",
+      "paragraph_id": "p2",
+      "quote": "报销需提供电子发票、出差审批单和行程记录。材料缺失时财务退回补充。"
+    },
+    {
+      "document_id": "EXPENSE-CN",
+      "version_date": "2026-08-01",
+      "paragraph_id": "p1",
+      "quote": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+    }
+  ],
+  "gaps": [],
+  "clarification_question": "",
+  "decision_summary": "检索到适用于中国境内员工境内差旅的《境内差旅报销办法》，读取原文p1、p2，明确材料清单为电子发票、出差审批单和行程记录，并附提交时限，足以回答。",
+  "trace_id": "20261030T193905Z_26a48d85"
+}

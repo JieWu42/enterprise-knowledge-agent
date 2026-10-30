@@ -1,0 +1,17 @@
+{
+  "case_id": "conflict",
+  "status": "needs_clarification",
+  "reason_code": "conflict",
+  "checks": {
+    "status": true,
+    "citation_MEAL-A": true,
+    "citation_MEAL-B": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 3,
+  "seconds": 4.781,
+  "trace_path": "conflict/trace.json"
+}

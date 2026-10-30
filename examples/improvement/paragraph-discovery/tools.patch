@@ -1,0 +1,60 @@
+--- before/tools.py
++++ after/tools.py
+@@ -10,6 +10,13 @@
+     if len(normalized) < 2:
+         return {normalized} if normalized else set()
+     return {normalized[i:i + 2] for i in range(len(normalized) - 1)}
++
++
++class UnknownParagraphError(ValueError):
++    def __init__(self, document_id, available_paragraph_ids):
++        super().__init__("Unknown paragraph_id")
++        self.document_id = document_id
++        self.available_paragraph_ids = available_paragraph_ids
+ 
+ 
+ class DocumentStore:
+@@ -50,6 +57,7 @@
+                 "document_id": doc["id"], "title": doc["title"],
+                 "version_date": doc["version_date"], "scope": doc["scope"],
+                 "score": score, "matched_paragraph_id": paragraph["id"],
++                "available_paragraph_ids": [p["id"] for p in doc["paragraphs"]],
+                 "snippet": paragraph["text"][:180],
+             })
+         results.sort(key=lambda x: (-x["score"], x["document_id"]))
+@@ -64,7 +72,7 @@
+         doc = self.docs[document_id]
+         paragraphs = {p["id"]: p for p in doc["paragraphs"]}
+         if any(p not in paragraphs for p in paragraph_ids):
+-            raise ValueError("Unknown paragraph_id")
++            raise UnknownParagraphError(document_id, list(paragraphs))
+         return {"ok": True, "document_id": doc["id"], "title": doc["title"],
+                 "version_date": doc["version_date"], "scope": doc["scope"],
+                 "available_paragraph_ids": list(paragraphs),
+@@ -74,14 +82,14 @@
+ TOOLS = [
+     {"type": "function", "function": {
+         "name": "search_documents",
+-        "description": "检索合成企业制度，返回候选 ID、版本、适用范围与命中摘要。摘要不是已读取证据，回答前应读取原文。",
++        "description": "检索合成企业制度，返回候选 ID、版本、适用范围、全部可读段落编号 available_paragraph_ids 与命中摘要。段落编号只用于读取导航，不代表原文已读；回答前应读取原文。",
+         "parameters": {"type": "object", "properties": {
+             "query": {"type": "string", "description": "简洁中文关键词，可根据结果改写"},
+             "top_k": {"type": "integer", "minimum": 1, "maximum": 8}},
+             "required": ["query", "top_k"], "additionalProperties": False}}},
+     {"type": "function", "function": {
+         "name": "read_document",
+-        "description": "读取候选文档的原文段落；段落编号使用检索命中或已读结果提供的编号。",
++        "description": "读取候选文档的原文段落；paragraph_ids 从该文档返回的 available_paragraph_ids 中选择，不猜测编号。编号错误时工具返回可读编号供修正，失败不算成功读取。",
+         "parameters": {"type": "object", "properties": {
+             "document_id": {"type": "string"},
+             "paragraph_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1}},
+@@ -118,5 +126,9 @@
+                     self.read_evidence[(result["document_id"], p["id"])] = {
+                         "text": p["text"], "version_date": result["version_date"]}
+             return result
++        except UnknownParagraphError as exc:
++            return {"ok": False, "document_id": exc.document_id,
++                    "available_paragraph_ids": exc.available_paragraph_ids,
++                    "error": {"code": "invalid_arguments", "message": str(exc)}}
+         except (ValueError, TypeError) as exc:
+             return {"ok": False, "error": {"code": "invalid_arguments", "message": str(exc)}}

@@ -1,0 +1,258 @@
+{
+  "trace_id": "20261030T193748Z_15289c7c",
+  "started_at": "2026-10-30T19:37:48.897257+00:00",
+  "mode": "real",
+  "requested_model": "deepseek-chat",
+  "provider_host": "api.deepseek.com",
+  "source_sha256": "992436310fa427d9a0b17aaa5175f412da207fa66b40c0e5c9468a03457aa336",
+  "corpus_sha256": "c30d193d40b6111060f53407c9c2cd2e89015199628bd912465fcca80593ea8e",
+  "input": {
+    "question": "今年是否有带薪年假，具体如何申请？",
+    "history": []
+  },
+  "limits": {
+    "model_calls": 8,
+    "tool_calls": 10
+  },
+  "fault_injection": {
+    "tool": null,
+    "remaining_at_start": 0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会先检索带薪年假相关制度。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_ILYT5AjjTMrMD8YQ3uYI1416",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"带薪年假 申请流程\", \"top_k\": 8}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_jp7POjEYv7pHNCN0OAVC5713",
+            "type": "function",
+            "function": {
+              "name": "search_documents",
+              "arguments": "{\"query\": \"年休假 天数 规定\", \"top_k\": 8}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 816,
+        "completion_tokens": 121,
+        "total_tokens": 937,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 176
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.406,
+      "tools": [
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "带薪年假 申请流程",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "带薪年假 申请流程",
+            "results": [
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.5714,
+                "matched_paragraph_id": "p1",
+                "snippet": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              },
+              {
+                "document_id": "EXPENSE-CN",
+                "title": "境内差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "中国境内员工的境内差旅",
+                "score": 0.1429,
+                "matched_paragraph_id": "p1",
+                "snippet": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "EXPENSE-INTL",
+                "title": "境外差旅报销办法",
+                "version_date": "2026-08-01",
+                "scope": "境外差旅，不论员工常驻地",
+                "score": 0.1429,
+                "matched_paragraph_id": "p1",
+                "snippet": "适用范围：境外差旅，不论员工常驻地。员工应在行程结束后45个自然日内提交差旅报销申请。"
+              },
+              {
+                "document_id": "IT-SUPPORT",
+                "title": "办公设备故障处理",
+                "version_date": "2026-07-01",
+                "scope": "公司配发的办公设备",
+                "score": 0.1429,
+                "matched_paragraph_id": "p1",
+                "snippet": "办公电脑发生故障时，通过 IT 工单系统报修并记录设备编号和故障现象。维修前应按公司流程备份工作文件。"
+              }
+            ],
+            "total_matches": 4,
+            "truncated": false
+          },
+          "seconds": 0.0
+        },
+        {
+          "name": "search_documents",
+          "arguments": {
+            "query": "年休假 天数 规定",
+            "top_k": 8
+          },
+          "observation": {
+            "ok": true,
+            "query": "年休假 天数 规定",
+            "results": [
+              {
+                "document_id": "LEAVE-REQUEST",
+                "title": "请假申请流程",
+                "version_date": "2026-06-20",
+                "scope": "全体员工的请假申请流程",
+                "score": 0.5,
+                "matched_paragraph_id": "p2",
+                "snippet": "本流程不规定员工的年假天数；年假额度须查询个人账户或向人事确认。"
+              }
+            ],
+            "total_matches": 1,
+            "truncated": false
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "model_response": {
+        "role": "assistant",
+        "content": "我会读取请假流程原文，确认年假申请的具体规定。",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_PYWHCgCubdNjWCznlpSD6865",
+            "type": "function",
+            "function": {
+              "name": "read_document",
+              "arguments": "{\"document_id\": \"LEAVE-REQUEST\", \"paragraph_ids\": [\"p1\", \"p2\"]}"
+            }
+          }
+        ]
+      },
+      "usage": {
+        "prompt_tokens": 1487,
+        "completion_tokens": 78,
+        "total_tokens": 1565,
+        "prompt_tokens_details": {
+          "cached_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 896,
+        "prompt_cache_miss_tokens": 591
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "tool_calls",
+      "model_seconds": 1.312,
+      "tools": [
+        {
+          "name": "read_document",
+          "arguments": {
+            "document_id": "LEAVE-REQUEST",
+            "paragraph_ids": [
+              "p1",
+              "p2"
+            ]
+          },
+          "observation": {
+            "ok": true,
+            "document_id": "LEAVE-REQUEST",
+            "title": "请假申请流程",
+            "version_date": "2026-06-20",
+            "scope": "全体员工的请假申请流程",
+            "available_paragraph_ids": [
+              "p1",
+              "p2"
+            ],
+            "paragraphs": [
+              {
+                "id": "p1",
+                "text": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+              },
+              {
+                "id": "p2",
+                "text": "本流程不规定员工的年假天数；年假额度须查询个人账户或向人事确认。"
+              }
+            ]
+          },
+          "seconds": 0.0
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "model_response": {
+        "role": "assistant",
+        "content": "{\"status\":\"answered\",\"reason_code\":\"sufficient_evidence\",\"answer\":\"关于申请方式：员工通过人事系统提交请假申请，需写明假别、起止日期及工作交接人，由直属负责人审批。年假属于请假的一种假别，因此按此流程提交。\\n\\n关于“今年是否有带薪年假”及具体天数：现有制度未规定年假天数，也未规定年假是否带薪；制度明确要求年假额度须查询个人账户或向人事确认。因此，你今年可享受的年假天数及带薪情况，需以个人账户记录或人事答复为准，制度原文无法给出结论。\",\"citations\":[{\"document_id\":\"LEAVE-REQUEST\",\"version_date\":\"2026-06-20\",\"paragraph_id\":\"p1\",\"quote\":\"员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。\"},{\"document_id\":\"LEAVE-REQUEST\",\"version_date\":\"2026-06-20\",\"paragraph_id\":\"p2\",\"quote\":\"本流程不规定员工的年假天数；年假额度须查询个人账户或向人事确认。\"}],\"gaps\":[\"制度未规定年假天数及是否带薪，需查询个人账户或向人事确认\",\"未检索到专门的年假管理办法（如存在，可能另有规定）\"],\"clarification_question\":\"\",\"decision_summary\":\"已读取《请假申请流程》全文两段，其中明确了请假申请渠道与审批人，并明确年假额度不在该流程规定范围内，故申请流程可答、年假天数与带薪性属资料缺口。\"}"
+      },
+      "usage": {
+        "prompt_tokens": 1711,
+        "completion_tokens": 342,
+        "total_tokens": 2053,
+        "prompt_tokens_details": {
+          "cached_tokens": 1536
+        },
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 175
+      },
+      "response_model": "deepseek-flash",
+      "finish_reason": "stop",
+      "model_seconds": 2.532,
+      "validation_errors": []
+    }
+  ],
+  "result": {
+    "status": "answered",
+    "reason_code": "sufficient_evidence",
+    "answer": "关于申请方式：员工通过人事系统提交请假申请，需写明假别、起止日期及工作交接人，由直属负责人审批。年假属于请假的一种假别，因此按此流程提交。\n\n关于“今年是否有带薪年假”及具体天数：现有制度未规定年假天数，也未规定年假是否带薪；制度明确要求年假额度须查询个人账户或向人事确认。因此，你今年可享受的年假天数及带薪情况，需以个人账户记录或人事答复为准，制度原文无法给出结论。",
+    "citations": [
+      {
+        "document_id": "LEAVE-REQUEST",
+        "version_date": "2026-06-20",
+        "paragraph_id": "p1",
+        "quote": "员工通过人事系统提交请假申请，写明假别、起止日期及工作交接人，由直属负责人审批。"
+      },
+      {
+        "document_id": "LEAVE-REQUEST",
+        "version_date": "2026-06-20",
+        "paragraph_id": "p2",
+        "quote": "本流程不规定员工的年假天数；年假额度须查询个人账户或向人事确认。"
+      }
+    ],
+    "gaps": [
+      "制度未规定年假天数及是否带薪，需查询个人账户或向人事确认",
+      "未检索到专门的年假管理办法（如存在，可能另有规定）"
+    ],
+    "clarification_question": "",
+    "decision_summary": "已读取《请假申请流程》全文两段，其中明确了请假申请渠道与审批人，并明确年假额度不在该流程规定范围内，故申请流程可答、年假天数与带薪性属资料缺口。",
+    "trace_id": "20261030T193748Z_15289c7c"
+  },
+  "model_calls": 3,
+  "tool_calls": 3,
+  "elapsed_seconds": 5.25,
+  "finished_at": "2026-10-30T19:37:54.145552+00:00"
+}

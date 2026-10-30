@@ -1,0 +1,14 @@
+{
+  "id": "cross-scope",
+  "question": "在国内工作的员工去境外出差，报销期限按哪份制度？",
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "EXPENSE-INTL"
+  ],
+  "required_answer_terms": [
+    "45"
+  ],
+  "author": "AI 补充的边界问题"
+}

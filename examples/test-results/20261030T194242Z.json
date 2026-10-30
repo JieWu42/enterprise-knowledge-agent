@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-10-30T19:42:42.703301+00:00",
+  "python": "3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]",
+  "source_sha256": "7183914e3b35bfb609e90514fa058351d4efc3106be1332b181e017ff06886c7",
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "scope": "Deterministic tests with scripted model doubles; not real-model decision evaluation"
+}

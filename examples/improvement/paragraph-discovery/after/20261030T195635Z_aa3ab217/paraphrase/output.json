@@ -1,0 +1,23 @@
+{
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "answer": "根据《境内差旅报销办法》，该办法适用于中国境内员工的境内差旅。你在中国上班，本次也是在国内出差，因此适用该办法：应在行程结束后20个自然日内提交差旅报销申请。提交时需提供电子发票、出差审批单和行程记录；材料缺失时，财务会退回补充。",
+  "citations": [
+    {
+      "document_id": "EXPENSE-CN",
+      "version_date": "2026-08-01",
+      "paragraph_id": "p1",
+      "quote": "适用范围：中国境内员工的境内差旅。员工应在行程结束后20个自然日内提交差旅报销申请。"
+    },
+    {
+      "document_id": "EXPENSE-CN",
+      "version_date": "2026-08-01",
+      "paragraph_id": "p2",
+      "quote": "报销需提供电子发票、出差审批单和行程记录。材料缺失时财务退回补充。"
+    }
+  ],
+  "gaps": [],
+  "clarification_question": "",
+  "decision_summary": "检索到《境内差旅报销办法》，其适用范围明确覆盖中国境内员工的境内差旅；已读取原文，确认提交时限为行程结束后20个自然日内，并核对了所需材料。",
+  "trace_id": "20261030T195648Z_21aeb503"
+}

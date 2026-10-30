@@ -1,0 +1,16 @@
+{
+  "case_id": "missing-scope",
+  "status": "needs_clarification",
+  "reason_code": "missing_scope",
+  "checks": {
+    "status": true,
+    "gap": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 4,
+  "seconds": 5.047,
+  "trace_path": "missing-scope/trace.json"
+}

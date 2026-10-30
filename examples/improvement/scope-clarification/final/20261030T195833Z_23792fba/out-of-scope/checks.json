@@ -1,0 +1,17 @@
+{
+  "case_id": "out-of-scope",
+  "status": "incomplete",
+  "reason_code": "missing_scope",
+  "checks": {
+    "status": true,
+    "not_answered": true,
+    "within_model_limit": true,
+    "within_tool_limit": true,
+    "no_unsupported_citation": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 5,
+  "seconds": 6.563,
+  "trace_path": "out-of-scope/trace.json"
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "changed-document",
+  "status": "answered",
+  "reason_code": "sufficient_evidence",
+  "checks": {
+    "status": true,
+    "citation_EXPENSE-CN": true,
+    "contains_25": true,
+    "excludes_20个自然日": true,
+    "within_model_limit": true,
+    "within_tool_limit": true
+  },
+  "automatic_checks_passed": true,
+  "model_calls": 3,
+  "tool_calls": 3,
+  "seconds": 4.625,
+  "trace_path": "changed-document/trace.json"
+}

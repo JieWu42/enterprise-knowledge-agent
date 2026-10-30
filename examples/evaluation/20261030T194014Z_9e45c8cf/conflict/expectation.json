@@ -1,0 +1,12 @@
+{
+  "id": "conflict",
+  "question": "工作餐报销需要在几天内提交？",
+  "expected_status": [
+    "needs_clarification"
+  ],
+  "required_citations": [
+    "MEAL-A",
+    "MEAL-B"
+  ],
+  "author": "AI 起草；吴杰提出应披露适用范围和替代关系缺失"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "transient-failure",
+  "question": "中国境内员工的境内差旅报销期限是什么？",
+  "fail_tool": "read_document",
+  "fail_count": 1,
+  "expected_status": [
+    "answered"
+  ],
+  "required_citations": [
+    "EXPENSE-CN"
+  ],
+  "expect_tool_failure": true,
+  "author": "AI 起草"
+}

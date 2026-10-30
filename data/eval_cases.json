@@ -1,0 +1,17 @@
+[
+  {"id":"normal","question":"我是中国境内员工，刚结束境内差旅，应在多少天内提交报销？","expected_status":["answered"],"required_citations":["EXPENSE-CN"],"required_answer_terms":["20"],"author":"AI 起草，依据合成制度"},
+  {"id":"conflict","question":"工作餐报销需要在几天内提交？","expected_status":["needs_clarification"],"required_citations":["MEAL-A","MEAL-B"],"author":"AI 起草；吴杰提出应披露适用范围和替代关系缺失"},
+  {"id":"out-of-scope","question":"公司每年给员工多少股票期权？","expected_status":["incomplete","needs_clarification"],"forbid_answered":true,"author":"AI 起草"},
+  {"id":"paraphrase","question":"我在中国上班，这次也是在国内出差，回来后最晚什么时候把费用单据交上去？","expected_status":["answered"],"required_citations":["EXPENSE-CN"],"required_answer_terms":["20"],"author":"AI 起草，与 normal 配对"},
+  {"id":"context","question":"那需要准备哪些材料？","history":[{"role":"user","content":"我是中国境内员工，这次是在境内出差，想咨询差旅报销。"},{"role":"assistant","content":"好的，你想了解差旅报销的哪些事项？"}],"expected_status":["answered"],"required_citations":["EXPENSE-CN"],"required_answer_terms":["发票","审批","行程"],"author":"AI 起草"},
+  {"id":"transient-failure","question":"中国境内员工的境内差旅报销期限是什么？","fail_tool":"read_document","fail_count":1,"expected_status":["answered"],"required_citations":["EXPENSE-CN"],"expect_tool_failure":true,"author":"AI 起草"},
+  {"id":"persistent-failure","question":"中国境内员工的境内差旅报销期限是什么？","fail_tool":"read_document","fail_count":-1,"expected_status":["incomplete","needs_clarification"],"expect_tool_failure":true,"forbid_answered":true,"author":"AI 起草"},
+  {"id":"user-annual-leave","question":"今年是否有带薪年假，具体如何申请？","expected_status":["partially_answered"],"required_citations":["LEAVE-REQUEST"],"required_answer_terms":["人事","审批"],"require_gap":true,"author":"吴杰提出复合问题并选择部分回答策略；AI 整理措辞与断言"},
+  {"id":"cross-scope","question":"在国内工作的员工去境外出差，报销期限按哪份制度？","expected_status":["answered"],"required_citations":["EXPENSE-INTL"],"required_answer_terms":["45"],"author":"AI 补充的边界问题"},
+  {"id":"missing-scope","question":"我的差旅报销应在几天内提交？","expected_status":["needs_clarification"],"require_gap":true,"author":"AI 起草"},
+  {"id":"step-limit","question":"境内差旅报销期限是什么？","max_model_calls":1,"expected_status":["incomplete"],"expected_reason":"step_limit","author":"AI 起草"},
+  {"id":"changed-document","question":"我是中国境内员工，刚结束境内差旅，应在多少天内提交报销？","mutation":{"document_id":"EXPENSE-CN","paragraph_id":"p1","old":"20个自然日","new":"25个自然日"},"expected_status":["answered"],"required_citations":["EXPENSE-CN"],"required_answer_terms":["25"],"forbidden_answer_terms":["20个自然日"],"author":"AI 起草；与 normal 对照检验证据敏感性"},
+  {"id":"natural-conflict","question":"2026年10月发生的工作餐费用，需要在几天内提交报销？","data_path":"data/scenarios/natural-conflict.json","expected_status":["needs_clarification"],"required_citations":["MEAL-A","MEAL-B"],"require_gap":true,"author":"吴杰在运行前定义预期：有冲突，待核实；AI 构造自然文本并执行"},
+  {"id":"explicit-replacement","question":"2026年10月发生的工作餐费用，需要在几天内提交报销？","data_path":"data/scenarios/explicit-replacement.json","expected_status":["answered"],"required_citations":["MEAL-B"],"required_citation_paragraphs":[["MEAL-B","p1"],["MEAL-B","p2"]],"required_answer_terms":["14"],"author":"吴杰在运行前定义预期：说明新制度已生效且替代旧规定，给出明确结果；AI 构造资料并执行"},
+  {"id":"policy-overview","question":"请比较境内和境外差旅的报销提交期限，不是询问我个人适用哪一种。","expected_status":["answered"],"required_citations":["EXPENSE-CN","EXPENSE-INTL"],"required_answer_terms":["20","45"],"author":"AI 根据 missing-scope 的实际状态失败补充反向用例，防止过度追问"}
+]

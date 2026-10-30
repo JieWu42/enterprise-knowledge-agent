@@ -1,0 +1,14 @@
+{
+  "id": "natural-conflict",
+  "question": "2026年10月发生的工作餐费用，需要在几天内提交报销？",
+  "data_path": "data/scenarios/natural-conflict.json",
+  "expected_status": [
+    "needs_clarification"
+  ],
+  "required_citations": [
+    "MEAL-A",
+    "MEAL-B"
+  ],
+  "require_gap": true,
+  "author": "吴杰在运行前定义预期：有冲突，待核实；AI 构造自然文本并执行"
+}
